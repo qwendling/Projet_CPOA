@@ -197,6 +197,13 @@ void MainWindow::transfoChanged()
 	// recupere la primitive courante et lui applique les transformations
 	// VOTRE CODE ICI
 
+    // Translation
+        m_render->pointSource[0] =  ui->translationX->value()/100.; // /100 car valeurs en pourcentage
+        m_render->pointSource[1] =  ui->translationY->value()/100.;
+
+        // Size
+        m_render->pointSize = ui->scale->value();
+
 
 	// de même avec un noeud Operation !
 

@@ -18,12 +18,19 @@ RenderImg::RenderImg(/*BoundingBox& bb,*/ QWidget *parent ):
 	m_ptrTex(NULL),
 //	m_img(1024,1024),
 	m_drawSobel(false),
-	m_BBdraw(false)
+    m_BBdraw(false),
+    m_img(16,16)
 //	m_BB(bb)
   // QQ INIT A AJOUTER ?
 
 {
-
+    m_timer = new QTimer(this);
+    m_timer->setInterval(20);
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(animate()));
+    // Init Vecteur, et point Source
+        pointSize = 3.;
+        nbrVec = 100;
+        tabVec = new VecVf[nbrVec]();
 	// VOTRE CODE ICI
 
 }
@@ -42,7 +49,7 @@ void RenderImg::loadTexture(const std::string& filename)
 
 void RenderImg::updateDataTexture()
 {
-//	m_ptrTex = m_img.getDataPtr();
+    //m_ptrTex = m_img.getDataPtr();
 	glBindTexture(GL_TEXTURE_2D, m_texture);
 	glTexSubImage2D(GL_TEXTURE_2D,0,0,0,m_widthTex, m_heightTex, GL_LUMINANCE, GL_UNSIGNED_BYTE, m_ptrTex);
 	glBindTexture(GL_TEXTURE_2D, 0);
@@ -116,6 +123,15 @@ void RenderImg::paintGL()
 
 //	if (m_BBdraw)
 //		drawBB(m_BB);
+
+    glPointSize(pointSize);
+    glColor3f(1,0,0);
+    glBegin(GL_POINTS);
+    for (int i = 0; i < nbrVec; i++ )
+    {
+        glVertex2fv(tabVec[i].get_ptr());
+    }
+    glEnd();
 
 }
 
@@ -203,7 +219,7 @@ void RenderImg::keyPressEvent(QKeyEvent* event)
 	switch(event->key())
 	{
 		case 'A':
-			std::cout << " touche a enfoncee" << std::endl;
+            std::cout << " touche a enfoncee" << std::endl;
 			break;
 		case 'E':
 			// qq init
@@ -227,7 +243,10 @@ void RenderImg::keyPressEvent(QKeyEvent* event)
 
 void RenderImg::animate()
 {
-	update();
+    for(int i=0; i<nbrVec ; i++){
+            tabVec[i].avance(pointSource[0],pointSource[1]);
+    }
+    update();
 }
 
 

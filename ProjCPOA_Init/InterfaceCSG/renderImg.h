@@ -7,6 +7,9 @@
 //#include "image2grey.h"
 //#include "vec2f.h"
 //#include "particle.h"
+#include "Vec2.h"
+#include "VecVf.h"
+#include "Image.h"
 
 //forward declaration
 class BoundingBox;
@@ -45,6 +48,10 @@ public:
 	*/
    void setBBDraw(bool v) { m_BBdraw = v;}
 
+   /// Point Source
+   float pointSize;
+   Vec2<float> pointSource;
+
 protected slots:
 	void animate();
 
@@ -57,6 +64,12 @@ protected:
 	void mouseReleaseEvent(QMouseEvent *event);
 	void keyPressEvent(QKeyEvent* event);
 	void keyReleaseEvent(QKeyEvent* event);
+
+    /// Tableau de Vecteur
+    int nbrVec;
+    VecVf* tabVec;
+
+
 
 
 	/// transform win coordinate in texel image coordinate
@@ -74,7 +87,7 @@ protected:
 		return 1.0f - (2.0f*y)/float(m_heightTex-1);// minus because of GL is bottom to up and image up to boytom
 	}
 
-
+    Image<uint8_t> m_img;
 
 	/// Texture information
 	GLuint m_texture;

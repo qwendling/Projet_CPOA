@@ -1,10 +1,10 @@
 #include <iostream>
-#include "matrix33d.h"
+//#include "matrix33d.h"
 
 int main()
 {
 
-	Matrix33d m1 = Matrix33d::identity();
+    /*Matrix33d m1 = Matrix33d::identity();
 
 	std::cout << "translate(3.5f,2.4f) "<<  std::endl;
 	m1.translate(3.5f,2.4f);
@@ -18,7 +18,7 @@ int main()
 	m1.rotate(0.4);
 	Matrix33d m2 = m1.inverse();
 
-	std::cout << m1 << std::endl<<"*"<< std::endl<<m2<< "=" << std::endl<< m1*m2 << std::endl;
+    std::cout << m1 << std::endl<<"*"<< std::endl<<m2<< "=" << std::endl<< m1*m2 << std::endl;*/
 
 
 	return 0;

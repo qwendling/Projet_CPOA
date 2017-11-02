@@ -18,3 +18,11 @@ target_include_directories(test_mat PRIVATE
 	${CMAKE_CURRENT_SOURCE_DIR}/..)
 
 target_link_libraries(test_mat vector_matrix )
+
+add_executable(test_array testArray.cpp)
+
+target_include_directories(test_array PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/..)
+
+target_link_libraries(test_array vector_matrix )
