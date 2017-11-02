@@ -24,10 +24,11 @@ int main()
     std::cout << "a3 : " << a3 <<std::endl;
 
     assert(a1==a1);
-    assert(a2==a3);
+
     assert(a1!=a2);
     std::cout << "test egalite ok" << std::endl;
-
+    assert(a2==a3);
+    std::cout << "test copie ok" << std::endl;
 
     return 0;
 }
