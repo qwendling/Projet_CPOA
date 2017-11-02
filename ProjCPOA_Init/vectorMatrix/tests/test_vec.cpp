@@ -6,27 +6,42 @@ int main()
 {
     Vector<float,3> v1{1.f,2.f,3.f};
     Vector<float,3> v2{10.f,20.f,30.f};
-    Vector<float,3> v3 = v1 + v2;
-    Vector<float,3> v4 = v3-v1;
+    Vector<float,3> v_test_add = v1 + v2;
+    Vector<float,3> v_test_sub = v_test_add-v1;
+
+    //Debut test operations entre vecteurs
 
     //on test si l'addition marche
-    assert(v3[0] == 11.f && v3[1] == 22.f && v3[2] == 33.f);
-    std::cout << v3 << std::endl;
+    assert(v_test_add[0] == 11.f && v_test_add[1] == 22.f && v_test_add[2] == 33.f);
+    std::cout << v_test_add << std::endl;
     //on test si la soustraction marche
-    assert(v2==v4);
-    std::cout << v4 << std::endl;
+    assert(v2==v_test_sub);
+    std::cout << v_test_sub << std::endl;
 
     //on test si += marche
     v1+=v2;
-    //Ici on a toujours v3 = v1+v2
-    assert(v1==v3);
+    //Ici on a toujours v_test_add = v1+v2
+    assert(v1==v_test_add);
     std::cout << v1 <<std::endl;
 
     //on test si -= marche
-    v1-=v4;
-    //Ici on a toujours v4 = v2 et v1 = v1+v2
+    v1-=v_test_sub;
+    //Ici on a toujours v_test_sub = v2 et v1 = v1+v2
     assert(v1[0] == 1.f && v1[1] == 2.f && v1[2] == 3.f);
     std::cout << v1 <<std::endl;
+
+
+    //Fin des test operations entre vecteurs
+
+    //Actuellement v1 = {1,2,3}
+    Vector<float,3> v_test_mult = v1 * 2;
+
+    assert(v_test_mult[0] == 2.f && v_test_mult[1] == 4.f && v_test_mult[2] == 6.f);
+    std::cout << v_test_mult <<std::endl;
+
+    Vector<float,3> v_test_mult2 = 2 * v1;
+    assert(v_test_mult2==v_test_mult);
+    std::cout << v_test_mult2 << std::endl;
 
 	return 0;
 }
