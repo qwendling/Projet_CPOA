@@ -64,6 +64,9 @@ int main()
     assert((v_test_vect * v_int1) == 0);
     std::cout << v_test_vect << std::endl;
 
+    Vec2f test2f{1.5f,5.f};
+    std::cout << test2f << std::endl;
+
 	return 0;
 }
 
