@@ -10,6 +10,7 @@ public:
 
     Vector<T,N> operator+(const Vector<T,N>& v2) const;
     Vector<T,N> operator-(const Vector<T,N>& v2) const;
+    T operator*(const Vector<T,N>& v2) const;
     Vector<T,N> operator*(const double scalaire) const;
     Vector<T,N> operator/(const double scalaire) const;
 

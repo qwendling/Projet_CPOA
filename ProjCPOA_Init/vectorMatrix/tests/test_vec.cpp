@@ -33,6 +33,8 @@ int main()
 
     //Fin des test operations entre vecteurs
 
+    //Debut test scalaire
+
     //Actuellement v1 = {1,2,3}
     Vector<float,3> v_test_mult = v1 * 2;
 
@@ -42,6 +44,25 @@ int main()
     Vector<float,3> v_test_mult2 = 2 * v1;
     assert(v_test_mult2==v_test_mult);
     std::cout << v_test_mult2 << std::endl;
+
+    Vector<int,3> v_int1{1,2,3};
+    Vector<int,3> v_int2{2,4,6};
+    Vector<int,3> v_test_div = v_int2 / 2;
+    assert(v_test_div == v_int1);
+    std::cout << v_test_div << std::endl;
+
+    //Fin test scalaire
+
+    //Test produit scalaire
+    int test_scalaire = v_int1 * v_int2;
+    assert(test_scalaire == 2+8+18);
+    std::cout << test_scalaire << std::endl;
+
+    //Test produit vectoriel
+    Vector<int,3> v_int3{4,2,7};
+    Vector<int,3> v_test_vect = vect(v_int1,v_int3);
+    assert((v_test_vect * v_int1) == 0);
+    std::cout << v_test_vect << std::endl;
 
 	return 0;
 }
