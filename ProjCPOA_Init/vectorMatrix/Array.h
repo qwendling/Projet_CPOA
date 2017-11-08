@@ -1,5 +1,6 @@
 #ifndef ARRAY_H
 #define ARRAY_H
+#include <initializer_list>
 
 template <typename T, int N>
 class Array{

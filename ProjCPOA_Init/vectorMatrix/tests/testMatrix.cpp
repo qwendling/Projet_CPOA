@@ -1,9 +1,12 @@
 #include <iostream>
-//#include "matrix33d.h"
+#include "Matrix33d.h"
 
 int main()
 {
+    Matrix33d m1;
+    Matrix33d m2{{1,2,3},{4,5,6},{7,8,9}};
 
+    std::cout << m1 << std::endl;
     /*Matrix33d m1 = Matrix33d::identity();
 
 	std::cout << "translate(3.5f,2.4f) "<<  std::endl;

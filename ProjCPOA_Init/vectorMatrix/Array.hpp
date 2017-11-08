@@ -5,7 +5,7 @@
 template <typename T, int N>
 Array<T,N>::Array(){
     for(int i=0;i<N;i++){
-        data[i]=T(0);
+        data[i]=T();
     }
 }
 

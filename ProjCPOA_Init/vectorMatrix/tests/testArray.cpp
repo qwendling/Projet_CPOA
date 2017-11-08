@@ -4,6 +4,8 @@
 
 int main()
 {
+    Array<float,5> a0;
+    std::cout << a0 << std::endl;
     Array<float,5> a1{1,2,3,4,5};
 
     assert(a1[0] == 1);

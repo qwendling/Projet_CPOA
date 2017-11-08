@@ -1,7 +1,18 @@
 #ifndef MATRIX33D_H
 #define MATRIX33D_H
+#include "Array.h"
 
-
-
+class Matrix33d : public Array<Array<double,3>,3>
+{
+public:
+    Matrix33d() : Array<Array<double,3>,3>() {}
+    inline Matrix33d(std::initializer_list<std::initializer_list<double>> inil){
+        assert(inil.size() <= 3);
+        int j=0;
+        for(std::initializer_list<double> x: inil)
+            data[j++]=Array<double,3>(x);
+    }
+    friend std::ostream &operator<<(std::ostream &out,const Matrix33d& m);
+};
 
 #endif
