@@ -1,12 +1,28 @@
 #include <iostream>
+#include <assert.h>
 #include "Matrix33d.h"
 
 int main()
 {
-    Matrix33d m1;
+    Matrix33d m1{{1,2,3},{0,1,4},{5,6,0}};
     Matrix33d m2{{1,2,3},{4,5,6},{7,8,9}};
 
-    std::cout << m1 << std::endl;
+    std::cout << m2 << std::endl;
+    std::cout << m2(1,0) << std::endl;
+    assert(m2(1,0)==2);
+
+    m2(2,1) = 12;
+    std::cout << m2 << std::endl;
+    assert(m2(2,1)==12);
+
+    std::cout << m1.determinant() <<std::endl;
+    std::cout << m1.invert() << std::endl;
+
+    Matrix33d test_id{{1,0,0},{0,1,0},{0,0,1}};
+    assert(test_id == Matrix33d::Identity());
+
+
+
     /*Matrix33d m1 = Matrix33d::identity();
 
 	std::cout << "translate(3.5f,2.4f) "<<  std::endl;

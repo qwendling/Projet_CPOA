@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/csgNode.cpp
+csgNode.h
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/csgNode.h
+iostream
+-
+
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/csgNode.h
+iostream
+-
+
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/csgPrimitive.cpp
+
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/main.cpp
+csgNode.h
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/csgNode.h
+iostream
+-
+

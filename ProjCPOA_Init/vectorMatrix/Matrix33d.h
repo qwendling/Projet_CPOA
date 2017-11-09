@@ -13,6 +13,12 @@ public:
             data[j++]=Array<double,3>(x);
     }
     friend std::ostream &operator<<(std::ostream &out,const Matrix33d& m);
+    double operator()(const int x,const int y) const;
+    double& operator()(const int x,const int y);
+    double determinant()const;
+    Matrix33d invert() const;
+    static Matrix33d Identity();
+    static Matrix33d scale(double kx,double ky);
 };
 
 #endif

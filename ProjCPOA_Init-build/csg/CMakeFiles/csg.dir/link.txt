@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcsg.a  CMakeFiles/csg.dir/csgPrimitive.cpp.o CMakeFiles/csg.dir/main.cpp.o CMakeFiles/csg.dir/csgNode.cpp.o
+/usr/bin/ranlib libcsg.a

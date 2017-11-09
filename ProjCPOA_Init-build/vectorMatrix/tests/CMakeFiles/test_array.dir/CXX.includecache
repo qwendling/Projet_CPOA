@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests/../Array.h
+initializer_list
+-
+Array.hpp
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests/../Array.hpp
+
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests/../Array.hpp
+Array.h
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests/../Array.h
+iostream
+-
+assert.h
+-
+
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests/testArray.cpp
+iostream
+-
+Array.h
+/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests/Array.h
+assert.h
+-
+
