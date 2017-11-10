@@ -15,11 +15,16 @@ int main()
     std::cout << m2 << std::endl;
     assert(m2(2,1)==12);
 
-    std::cout << m1.determinant() <<std::endl;
-    std::cout << m1.invert() << std::endl;
+    assert(m1.determinant() == 1);
 
     Matrix33d test_id{{1,0,0},{0,1,0},{0,0,1}};
     assert(test_id == Matrix33d::Identity());
+
+    assert((m1 * Matrix33d::Identity()) == m1);
+
+
+    std::cout << "m1 : \n" << m1 << "\nm1 inverse : \n" << m1.invert() << "\nm1 * inverse : \n" << m1*m1.invert() << std::endl;
+    assert((m1 * m1.invert()) == Matrix33d::Identity());
 
 
 

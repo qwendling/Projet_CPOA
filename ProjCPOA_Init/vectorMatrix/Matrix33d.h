@@ -21,6 +21,9 @@ public:
     static Matrix33d Identity();
     static Matrix33d scale(const double kx,const double ky);
     static Matrix33d translate(const double dx,const double dy);
+    static Matrix33d rotate(const double alpha);
+
+    Matrix33d operator*(const Matrix33d&)const;
 };
 
 #endif

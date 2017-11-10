@@ -1,4 +1,5 @@
 #include "Matrix33d.h"
+#include <math.h>
 
 
 std::ostream &operator<<(std::ostream &out,const Matrix33d& m){
@@ -70,4 +71,28 @@ Matrix33d Matrix33d::translate(const double dx,const double dy){
     t(2,1) = dy;
 
     return t;
+}
+
+Matrix33d Matrix33d::rotate(const double alpha){
+    Matrix33d r = Identity();
+
+    r(0,0) = cos(alpha);
+    r(1,0) = -sin(alpha);
+    r(0,1) = sin(alpha);
+    r(1,1) = cos(alpha);
+
+    return r;
+}
+
+Matrix33d Matrix33d::operator*(const Matrix33d& m)const{
+    int i,j,k;
+    Matrix33d result;
+    for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            for(k=0;k<3;k++){
+                result(i,j)+=(*this)(k,j)*m(i,k);
+            }
+        }
+    }
+    return result;
 }
