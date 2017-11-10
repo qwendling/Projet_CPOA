@@ -96,3 +96,20 @@ Matrix33d Matrix33d::operator*(const Matrix33d& m)const{
     }
     return result;
 }
+
+void Matrix33d::applyRotation(const double alpha){
+    *this = rotate(alpha)*(*this);
+}
+
+void Matrix33d::applyScale(const double kx,const double ky){
+    *this = scale(kx,ky)*(*this);
+}
+
+void Matrix33d::applyTranslate(const double dx,const double dy){
+    *this = translate(dx,dy)*(*this);
+}
+
+
+
+
+

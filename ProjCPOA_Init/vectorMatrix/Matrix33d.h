@@ -24,6 +24,9 @@ public:
     static Matrix33d rotate(const double alpha);
 
     Matrix33d operator*(const Matrix33d&)const;
+    void applyRotation(const double alpha);
+    void applyScale(const double kx,const double ky);
+    void applyTranslate(const double dx,const double dy);
 };
 
 #endif
