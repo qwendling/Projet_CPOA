@@ -109,7 +109,17 @@ void Matrix33d::applyTranslate(const double dx,const double dy){
     *this = translate(dx,dy)*(*this);
 }
 
+void Matrix33d::setRotation(const double alpha){
+    *this = rotate(alpha);
+}
 
+void Matrix33d::setScale(const double kx,const double ky){
+    *this = scale(kx,ky);
+}
+
+void Matrix33d::setTranslate(const double dx,const double dy){
+    *this = translate(dx,dy);
+}
 
 
 

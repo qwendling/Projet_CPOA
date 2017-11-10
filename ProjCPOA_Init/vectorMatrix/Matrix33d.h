@@ -27,6 +27,12 @@ public:
     void applyRotation(const double alpha);
     void applyScale(const double kx,const double ky);
     void applyTranslate(const double dx,const double dy);
+
+    void setRotation(const double alpha);
+
+    void setScale(const double kx,const double ky);
+
+    void setTranslate(const double dx,const double dy);
 };
 
 #endif
