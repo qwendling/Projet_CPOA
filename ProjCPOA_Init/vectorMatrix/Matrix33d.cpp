@@ -134,7 +134,7 @@ Vec3f Matrix33d::operator*(const Vec3f& v)const{
 }
 
 Vec2f Matrix33d::apply(Vec2f& v)const{
-    v = Vec2f((*this)*Vec3f(v));
+    v = (*this)*v;
     return v;
 }
 

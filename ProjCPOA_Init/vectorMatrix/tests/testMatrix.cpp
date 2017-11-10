@@ -34,6 +34,12 @@ int main()
     m_test_translate.applyTranslate(3.5f,2.4f);
     std::cout << m_test_translate <<  std::endl;
 
+    Matrix33d m_test_apply2D = Matrix33d::scale(3,4);
+    Vec2f v2D{2,4};
+    std::cout << "test :" << m_test_apply2D.apply(v2D) << std::endl;
+
+    assert(v2D[0] == 6 && v2D[1] == 16);
+
     /*x = 0.0;
 	y = 0.0;
 	m1.applyTransformation(x,y);
