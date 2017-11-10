@@ -121,5 +121,21 @@ void Matrix33d::setTranslate(const double dx,const double dy){
     *this = translate(dx,dy);
 }
 
+Vec3f Matrix33d::operator*(const Vec3f& v)const{
+    Vec3f result;
+
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            result[i] += (*this)(j,i)*v[j];
+        }
+    }
+
+    return result;
+}
+
+Vec2f Matrix33d::apply(Vec2f& v)const{
+    v = Vec2f((*this)*Vec3f(v));
+    return v;
+}
 
 

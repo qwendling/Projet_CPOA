@@ -33,7 +33,7 @@ public:
     void setScale(const double kx,const double ky);
     void setTranslate(const double dx,const double dy);
 
-    Vec3f apply(Vec3f&)const;
+    Vec3f operator*(const Vec3f&)const;
     Vec2f apply(Vec2f&)const;
 };
 
