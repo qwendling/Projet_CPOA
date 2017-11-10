@@ -7,6 +7,8 @@ class Vector : public Array<T,N>{
 public:
     Vector() : Array<T,N>(){}
     Vector(std::initializer_list<T> inil) : Array<T,N>(inil){}
+    template <int M>
+    Vector(Array<T,M> a) : Array<T,N>(a){}
 
     Vector<T,N> operator+(const Vector<T,N>& v2) const;
     Vector<T,N> operator-(const Vector<T,N>& v2) const;

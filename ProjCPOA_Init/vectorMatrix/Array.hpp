@@ -17,6 +17,14 @@ Array<T,N>::Array(std::initializer_list<T> inil){
         data[j++]=x;
 }
 
+template <typename T,int N>
+template<int M>
+Array<T,N>::Array(Array<T, M> a){
+    *this = Array<T,N>();
+    for(int i= 0;i<N && i<M;i++){
+        data[i] = a[i];
+    }
+}
 
 template <typename T, int N>
 T Array<T,N>::operator[](const int index) const {

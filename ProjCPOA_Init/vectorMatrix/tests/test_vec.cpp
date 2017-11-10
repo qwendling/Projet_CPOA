@@ -8,6 +8,9 @@ int main()
     Vector<float,3> v2{10.f,20.f,30.f};
     Vector<float,3> v_test_add = v1 + v2;
     Vector<float,3> v_test_sub = v_test_add-v1;
+    Vector<float,2> v_test_const(v1);
+
+    std::cout << v_test_const << std::endl;
 
     //Debut test operations entre vecteurs
 

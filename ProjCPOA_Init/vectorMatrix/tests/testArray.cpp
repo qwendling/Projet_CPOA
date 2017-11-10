@@ -8,6 +8,11 @@ int main()
     std::cout << a0 << std::endl;
     Array<float,5> a1{1,2,3,4,5};
 
+    Array<float,2> test_const(a1);
+    assert(a1[0] == test_const[0] && a1[1] == test_const[1]);
+
+    std::cout << test_const << std::endl;
+
     assert(a1[0] == 1);
     std::cout << "test acces ok" <<std::endl;
 

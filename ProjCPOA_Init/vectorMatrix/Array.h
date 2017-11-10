@@ -7,6 +7,8 @@ class Array{
     public:
         Array();
         Array(std::initializer_list<T> inil);
+        template<int M>
+        Array(Array<T,M>);
         T operator[](const int index) const;
         T& operator[](const int index);
         void operator=(const Array<T,N>& a);
