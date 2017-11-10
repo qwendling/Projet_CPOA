@@ -55,7 +55,7 @@ Matrix33d Matrix33d::Identity(){
     return id;
 }
 
-Matrix33d Matrix33d::scale(double kx,double ky){
+Matrix33d Matrix33d::scale(const double kx,const double ky){
     Matrix33d s = Identity();
     s(0,0) = kx;
     s(1,1) = ky;
@@ -63,7 +63,7 @@ Matrix33d Matrix33d::scale(double kx,double ky){
     return s;
 }
 
-Matrix33d Matrix33d::translate(double dx,double dy){
+Matrix33d Matrix33d::translate(const double dx,const double dy){
     Matrix33d t = Identity();
 
     s(2,0) = dx;

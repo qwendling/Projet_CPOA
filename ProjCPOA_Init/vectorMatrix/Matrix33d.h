@@ -17,8 +17,10 @@ public:
     double& operator()(const int x,const int y);
     double determinant()const;
     Matrix33d invert() const;
+
     static Matrix33d Identity();
-    static Matrix33d scale(double kx,double ky);
+    static Matrix33d scale(const double kx,const double ky);
+    static Matrix33d translate(const double dx,const double dy);
 };
 
 #endif
