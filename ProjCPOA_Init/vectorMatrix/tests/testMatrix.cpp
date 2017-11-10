@@ -28,13 +28,13 @@ int main()
 
 
 
-    /*Matrix33d m1 = Matrix33d::identity();
+    Matrix33d m_test_translate = Matrix33d::Identity();
 
 	std::cout << "translate(3.5f,2.4f) "<<  std::endl;
-	m1.translate(3.5f,2.4f);
-	std::cout << m1 <<  std::endl;
+    m_test_translate.applyTranslate(3.5f,2.4f);
+    std::cout << m_test_translate <<  std::endl;
 
-	x = 0.0;
+    /*x = 0.0;
 	y = 0.0;
 	m1.applyTransformation(x,y);
 	std::cout << "0,0 => "<< x << "," << y << std::endl;
