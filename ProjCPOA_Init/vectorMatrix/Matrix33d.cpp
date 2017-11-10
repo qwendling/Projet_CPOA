@@ -66,8 +66,8 @@ Matrix33d Matrix33d::scale(const double kx,const double ky){
 Matrix33d Matrix33d::translate(const double dx,const double dy){
     Matrix33d t = Identity();
 
-    s(2,0) = dx;
-    s(2,1) = dy;
+    t(2,0) = dx;
+    t(2,1) = dy;
 
     return t;
 }
