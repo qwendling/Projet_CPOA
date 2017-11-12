@@ -1,4 +1,4 @@
-#include "imgGradient.h"
+/*#include "imgGradient.h"
 
 
 
@@ -26,3 +26,4 @@ Image2<Vec2f> GradientSobel::gradient55(const Image2grey& img_in)
 }
 
 
+*/
