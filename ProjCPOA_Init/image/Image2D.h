@@ -19,7 +19,14 @@ public:
         pixels_ = new T[w*h];
     }
 
-    Image2D(const Image2D& im) = delete;
+    Image2D(const Image2D& im) {
+        pixels_ = new T[im.width()*im.height()];
+        for(int i=0;i<im.width();i++){
+            for(int j=0;j<im.height();j++){
+                (*this)(i,j) = im(i,j);
+            }
+        }
+    }
 
     Image2D() = delete;
 
@@ -43,7 +50,7 @@ public:
         std::swap(im.pixels_,this->pixels_);
     }
 
-    void cropping(uint x,uint y,uint w,uint h){
+    Image2D cropping(uint x,uint y,uint w,uint h){
         if(w+x > this->width()){
             w = this->width() - x;
         }
@@ -61,10 +68,8 @@ public:
             }
         }
 
-        w_ = w;
-        h_ = h;
 
-        swap_pixels(result);
+        return result;
     }
 
     void convol3x3(const double* m)

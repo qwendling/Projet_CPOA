@@ -26,9 +26,9 @@ int main(){
 
     std::cout << test_image << std::endl;
 
-    test_image.cropping(2,2,10,10);
+    Image2D<int> im2 = test_image.cropping(2,2,10,10);
 
-    std::cout << test_image << std::endl;
+    std::cout << im2 << std::endl;
 
     return 0;
 }
