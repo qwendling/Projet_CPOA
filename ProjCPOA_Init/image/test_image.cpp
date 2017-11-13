@@ -36,5 +36,7 @@ int main(){
 
     std::cout << test_grey << std::endl;
 
+    test_grey.sauvegarderPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test2.pgm");
+
     return 0;
 }

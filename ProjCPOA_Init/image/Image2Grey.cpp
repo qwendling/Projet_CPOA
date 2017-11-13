@@ -36,7 +36,8 @@ void Image2Grey::chargerPGM(const std::string& path){
         w_=w;
         h_=h;
         pixels_ = new unsigned char[w*h];
-        int j=0;
+        int tmp,j=0;
+        double coeff = 255.f/(double)max;
         //On stock les donees de l'image
         while(getline(file,line)){
             ss.seekg(0);
@@ -51,8 +52,23 @@ void Image2Grey::chargerPGM(const std::string& path){
     }
 }
 
-void sauvegarderPGM(const std::string& path){
+void Image2Grey::sauvegarderPGM(const std::string& path){
+    //On ouvre le fichier en lecture
+    ofstream file(path,ios::out | ios::trunc);
 
+    //Si le fichier n'est pas ouvert on quitte
+    if(file){
+        file << "P2" << endl;
+        file << this->width() << " " << this->height() << endl;
+        file << 255 << endl;
+        for(uint y=0;y<this->height();y++){
+            for(uint x=0;x<this->width();x++){
+                file << (*this)(x,y) << " ";
+            }
+            file << endl;
+        }
+        file.close();
+    }
 }
 
 std::ostream &operator<<(std::ostream &out,const Image2Grey& i){
