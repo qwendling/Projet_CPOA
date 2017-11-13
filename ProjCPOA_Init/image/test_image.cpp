@@ -1,4 +1,5 @@
 #include "Image2D.h"
+#include "Image2Grey.h"
 
 
 int main(){
@@ -29,6 +30,11 @@ int main(){
     Image2D<int> im2 = test_image.cropping(2,2,10,10);
 
     std::cout << im2 << std::endl;
+
+    Image2Grey test_grey(15,15);
+    test_grey.chargerPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test.pgm");
+
+    std::cout << test_grey << std::endl;
 
     return 0;
 }

@@ -21,8 +21,8 @@ public:
 
     Image2D(const Image2D& im) {
         pixels_ = new T[im.width()*im.height()];
-        for(int i=0;i<im.width();i++){
-            for(int j=0;j<im.height();j++){
+        for(uint i=0;i<im.width();i++){
+            for(uint j=0;j<im.height();j++){
                 (*this)(i,j) = im(i,j);
             }
         }
