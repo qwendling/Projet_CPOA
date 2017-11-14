@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/csgNode.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/csg/csgNode.cpp
 csgNode.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/csgNode.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/csg/csgNode.h
 iostream
 -
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/csgNode.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/csg/csgNode.h
 iostream
 -
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/csgPrimitive.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/csg/csgPrimitive.cpp
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/main.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/csg/main.cpp
 csgNode.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg/csgNode.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/csg/csgNode.h
 iostream
 -
 

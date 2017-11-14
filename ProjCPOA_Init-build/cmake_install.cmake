@@ -1,4 +1,4 @@
-# Install script for directory: /adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init
+# Install script for directory: /home/quentin/Projet_CPOA/ProjCPOA_Init
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,9 +34,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init-build/vectorMatrix/cmake_install.cmake")
-  include("/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init-build/csg/cmake_install.cmake")
-  include("/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/cmake_install.cmake")
+  include("/home/quentin/Projet_CPOA/ProjCPOA_Init-build/vectorMatrix/cmake_install.cmake")
+  include("/home/quentin/Projet_CPOA/ProjCPOA_Init-build/image/cmake_install.cmake")
+  include("/home/quentin/Projet_CPOA/ProjCPOA_Init-build/csg/cmake_install.cmake")
+  include("/home/quentin/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/cmake_install.cmake")
 
 endif()
 
@@ -48,5 +49,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init-build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/quentin/Projet_CPOA/ProjCPOA_Init-build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

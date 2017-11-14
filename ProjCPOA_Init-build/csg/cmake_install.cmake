@@ -1,4 +1,4 @@
-# Install script for directory: /adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/csg
+# Install script for directory: /home/quentin/Projet_CPOA/ProjCPOA_Init/csg
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

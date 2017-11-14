@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
   "InterfaceCSG_automoc.cpp"
-  "CMakeFiles/InterfaceCSG.dir/main.cpp.o"
   "CMakeFiles/InterfaceCSG.dir/Vec2V.cpp.o"
-  "CMakeFiles/InterfaceCSG.dir/mainwindow.cpp.o"
   "CMakeFiles/InterfaceCSG.dir/renderImg.cpp.o"
+  "CMakeFiles/InterfaceCSG.dir/mainwindow.cpp.o"
+  "CMakeFiles/InterfaceCSG.dir/main.cpp.o"
   "CMakeFiles/InterfaceCSG.dir/InterfaceCSG_automoc.cpp.o"
   "InterfaceCSG.pdb"
   "InterfaceCSG"

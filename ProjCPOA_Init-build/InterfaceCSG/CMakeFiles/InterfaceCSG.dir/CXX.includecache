@@ -6,77 +6,77 @@
 
 #IncludeRegexTransform: 
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/InterfaceCSG_automoc.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/InterfaceCSG_automoc.cpp
 moc_mainwindow.cpp
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/moc_mainwindow.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/moc_mainwindow.cpp
 moc_renderImg.cpp
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/moc_renderImg.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/moc_renderImg.cpp
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/moc_mainwindow.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/moc_mainwindow.cpp
 ../../ProjCPOA_Init/InterfaceCSG/mainwindow.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/mainwindow.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/mainwindow.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/moc_renderImg.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init-build/InterfaceCSG/moc_renderImg.cpp
 ../../ProjCPOA_Init/InterfaceCSG/renderImg.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/renderImg.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/renderImg.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/../vectorMatrix/Array.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/../vectorMatrix/Array.h
 initializer_list
 -
 Array.hpp
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/../vectorMatrix/Array.hpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/../vectorMatrix/Array.hpp
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/../vectorMatrix/Array.hpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/../vectorMatrix/Array.hpp
 Array.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/../vectorMatrix/Array.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/../vectorMatrix/Array.h
 iostream
 -
 assert.h
 -
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Image.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Image.h
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.h
 Array.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Array.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Array.h
 Vec2.hpp
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.hpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.hpp
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.hpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.hpp
 Vec2.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.h
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2V.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2V.cpp
 Vec2V.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2V.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2V.h
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2V.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2V.h
 Vec2.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.h
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/VecVf.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/VecVf.h
 Array.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Array.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Array.h
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/main.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/main.cpp
 QApplication
 -
 mainwindow.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/mainwindow.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/mainwindow.h
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/mainwindow.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/mainwindow.cpp
 mainwindow.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/mainwindow.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/mainwindow.h
 ui_mainwindow.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/ui_mainwindow.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/ui_mainwindow.h
 QFileDialog
 -
 QTextCursor
@@ -90,7 +90,7 @@ sstream
 math.h
 -
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/mainwindow.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/mainwindow.h
 QMainWindow
 -
 QPlainTextEdit
@@ -98,13 +98,13 @@ QPlainTextEdit
 QKeyEvent
 -
 renderImg.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/renderImg.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/renderImg.h
 map
 -
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/renderImg.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/renderImg.cpp
 renderImg.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/renderImg.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/renderImg.h
 QMouseEvent
 -
 iostream
@@ -112,21 +112,21 @@ iostream
 limits
 -
 Array.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Array.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Array.h
 Vec2.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.h
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/renderImg.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/renderImg.h
 QGLWidget
 -
 QTimer
 -
 Vec2.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Vec2.h
 VecVf.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/VecVf.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/VecVf.h
 Image.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Image.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/InterfaceCSG/Image.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
 qtimer.h

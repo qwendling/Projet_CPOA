@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++11 -Wall
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests -I/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests/.. 
+CXX_INCLUDES = -I/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests -I/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests/.. 
 

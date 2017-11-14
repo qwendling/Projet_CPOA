@@ -9,9 +9,10 @@ public:
     Image2Grey(const Image2Grey& im) : Image2D(im) {}
 
     static Image2Grey chargerPGM(const std::string& path);
-    void sauvegarderPGM(const std::string& path);
+    void sauvegarderPGM(const std::string& path)const;
     Image2Grey sousEch();
     friend std::ostream &operator<<(std::ostream &out,const Image2Grey& i);
+    Image2Grey lissage(const uint n)const;
 };
 
 

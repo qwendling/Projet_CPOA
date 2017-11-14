@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/vector_matrix.dir/Matrix33d.cpp.o"
-  "CMakeFiles/vector_matrix.dir/Array.cpp.o"
   "libvector_matrix.pdb"
   "libvector_matrix.a"
 )

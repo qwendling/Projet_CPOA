@@ -1,6 +1,7 @@
 #include "Image2Grey.h"
 #include <iostream>
 #include <fstream>
+#include <cmath>
 #include <sstream>
 
 using namespace std;
@@ -53,7 +54,7 @@ Image2Grey Image2Grey::chargerPGM(const std::string& path){
     return Image2Grey(0,0);
 }
 
-void Image2Grey::sauvegarderPGM(const std::string& path){
+void Image2Grey::sauvegarderPGM(const std::string& path) const{
     //On ouvre le fichier en lecture
     ofstream file(path,ios::out | ios::trunc);
 
@@ -93,6 +94,26 @@ Image2Grey Image2Grey::sousEch(){
    }
 
    return result;
+}
+
+Image2Grey Image2Grey::lissage(uint n)const{
+    Image2Grey result(*this);
+    int size = 2*n+1;
+    for(uint i=0;i<result.width();i++){
+        for(uint j = 0;j<result.height();j++){
+            int inter = 0;
+            for(int k=-1;k<size-1;k++){
+                for(int w=-1;w<size-1;w++){
+                    if(i+k < 0 || j+w < 0 || i+k >= result.width() || j+w >= result.height())
+                        continue;
+                    inter += (*this)(i+k,j+w);
+                }
+            }
+            result(i,j) = inter/(std::pow(size,2));
+        }
+
+    }
+    return result;
 }
 
 

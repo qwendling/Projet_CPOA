@@ -1,2 +1,2 @@
-/usr/bin/ar qc libvector_matrix.a  CMakeFiles/vector_matrix.dir/Matrix33d.cpp.o CMakeFiles/vector_matrix.dir/Array.cpp.o
+/usr/bin/ar qc libvector_matrix.a  CMakeFiles/vector_matrix.dir/Matrix33d.cpp.o
 /usr/bin/ranlib libvector_matrix.a

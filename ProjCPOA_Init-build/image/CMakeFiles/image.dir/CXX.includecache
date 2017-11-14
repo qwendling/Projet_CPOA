@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/quentin/Projet_CPOA/ProjCPOA_Init/image/Image2D.h
+utility
+-
+iostream
+-
+assert.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/image/assert.h
+
+/home/quentin/Projet_CPOA/ProjCPOA_Init/image/Image2Grey.cpp
+Image2Grey.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/image/Image2Grey.h
+iostream
+-
+fstream
+-
+cmath
+-
+sstream
+-
+
+/home/quentin/Projet_CPOA/ProjCPOA_Init/image/Image2Grey.h
+Image2D.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/image/Image2D.h
+
+/home/quentin/Projet_CPOA/ProjCPOA_Init/image/imgGradient.cpp
+
+/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test_image.cpp
+Image2D.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/image/Image2D.h
+Image2Grey.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/image/Image2Grey.h
+

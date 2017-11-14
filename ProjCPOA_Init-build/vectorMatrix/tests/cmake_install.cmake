@@ -1,4 +1,4 @@
-# Install script for directory: /adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests
+# Install script for directory: /home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -6,27 +6,39 @@
 
 #IncludeRegexTransform: 
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.cpp
-
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.h
 initializer_list
 -
 Array.hpp
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.hpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.hpp
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.hpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.hpp
 Array.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.h
 iostream
 -
 assert.h
 -
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Matrix33d.cpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Matrix33d.cpp
 Matrix33d.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Matrix33d.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Matrix33d.h
+math.h
+-
 
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Matrix33d.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Matrix33d.h
 Array.h
-/adhome/q/qw/q.wendling/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.h
+Vector.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Vector.h
+
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Vector.h
+Array.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Array.h
+Vector.hpp
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Vector.hpp
+
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Vector.hpp
+Vector.h
+/home/quentin/Projet_CPOA/ProjCPOA_Init/vectorMatrix/Vector.h
 
