@@ -49,9 +49,9 @@ Image2RGB Image2RGB::chargerPPM(const std::string& path){
                 data >> tmp;
                 Result(x,y)[0] = tmp * coeff ;
                 data >> tmp;
-                Result(x,y)[0] = tmp * coeff ;
+                Result(x,y)[1] = tmp * coeff ;
                 data >> tmp;
-                Result(x,y)[0] = tmp * coeff ;
+                Result(x,y)[2] = tmp * coeff ;
             }
         }
         file.close();
@@ -66,7 +66,7 @@ void Image2RGB::sauvegarderPPM(const std::string& path)const{
 
     //Si le fichier n'est pas ouvert on quitte
     if(file){
-        file << "P2" << endl;
+        file << "P3" << endl;
         file << this->width() << " " << this->height() << endl;
         file << 255 << endl;
         for(uint y=0;y<this->height();y++){

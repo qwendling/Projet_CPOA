@@ -1,5 +1,6 @@
 #include "Image2D.h"
 #include "Image2Grey.h"
+#include "Image2RGB.h"
 #include "GradientSobel.h"
 
 
@@ -45,6 +46,10 @@ int main(){
     test_grey.lissage(5).sauvegarderPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test4.pgm");
 
     GradientSobel::Sobel(test_grey);
+
+    Image2RGB test_rgb = Image2RGB::chargerPPM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test.ppm");
+
+    test_rgb.sauvegarderPPM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test2.ppm");
 
     return 0;
 }
