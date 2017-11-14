@@ -42,7 +42,7 @@ int main(){
     test_grey.sousEch().sauvegarderPGM("/home/quentin/Projet_CPOA/doge3.pgm");
 
     std::cout << test_grey.lissage(1) << std::endl;
-    test_grey.lissage(1).sauvegarderPGM("/home/quentin/Projet_CPOA/doge4.pgm");
+    test_grey.lissage(50).sauvegarderPGM("/home/quentin/Projet_CPOA/doge5.pgm");
 
     return 0;
 }
