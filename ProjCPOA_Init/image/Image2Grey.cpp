@@ -35,29 +35,19 @@ Image2Grey Image2Grey::chargerPGM(const std::string& path){
             break;
         }
         Image2Grey Result(w,h);
-        int tmp,j=0;
+        int tmp;
         double coeff = 255.f/(double)max;
         std::stringstream data;
         string data_str;
         //On stock les donnees de l'image
         while(getline(file,line)){
-            data_str += line;
-            std::cout << "test data" << line << endl;
-            std::cout << data_str << std::endl;
-            ss.seekg(0);
-            ss.str(line);
-            for(int i=0;i<w;i++){
-                ss >> tmp;
-                Result(i,j) = tmp * coeff;
-            }
-            j++;
-
+            data_str += line+"\n";
         }
         data.str(data_str);
         for(int y=0;y<h;y++){
-            for(int x = 0;x<h;x++){
+            for(int x = 0;x<w;x++){
                 data >> tmp;
-                Result(x,y) = tmp * coeff;
+                Result(x,y) = tmp * coeff ;
             }
         }
         std::cout << "size data : " << data.gcount() << endl;
