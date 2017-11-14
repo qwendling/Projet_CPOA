@@ -31,9 +31,8 @@ int main(){
 
     std::cout << im2 << std::endl;
 
-    Image2Grey test_grey(15,15);
-    test_grey.chargerPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test.pgm");
-
+    Image2Grey test_grey = Image2Grey::chargerPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test.pgm");
+    std::cout << "test main" << std::endl;
     std::cout << test_grey << std::endl;
 
     test_grey.sauvegarderPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test2.pgm");

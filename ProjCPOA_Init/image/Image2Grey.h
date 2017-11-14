@@ -8,7 +8,7 @@ public:
 
     Image2Grey(const Image2Grey& im) : Image2D(im) {}
 
-    void chargerPGM(const std::string& path);
+    static Image2Grey chargerPGM(const std::string& path);
     void sauvegarderPGM(const std::string& path);
     friend std::ostream &operator<<(std::ostream &out,const Image2Grey& i);
 };

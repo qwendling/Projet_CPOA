@@ -4,7 +4,7 @@
 #include <sstream>
 
 using namespace std;
-void Image2Grey::chargerPGM(const std::string& path){
+Image2Grey Image2Grey::chargerPGM(const std::string& path){
     //On ouvre le fichier en lecture
     ifstream file(path,ios::in);
 
@@ -17,7 +17,7 @@ void Image2Grey::chargerPGM(const std::string& path){
         getline(file,line);
         //On verifie le magic number
         if(line != "P2")
-            return;
+            return Image2Grey(0,0);
         //On enregistre les parametre du ficher
         while(getline(file,line)){
             if(line[0] == '#'){
@@ -33,9 +33,7 @@ void Image2Grey::chargerPGM(const std::string& path){
             ss >> max;
             break;
         }
-        w_=w;
-        h_=h;
-        pixels_ = new unsigned char[w*h];
+        Image2Grey Result(w,h);
         int tmp,j=0;
         double coeff = 255.f/(double)max;
         //On stock les donees de l'image
@@ -44,12 +42,16 @@ void Image2Grey::chargerPGM(const std::string& path){
             ss.str(line);
             for(int i=0;i<w;i++){
                 ss >> tmp;
-                (*this)(i,j) = tmp * coeff;
+                Result(i,j) = tmp * coeff;
             }
             j++;
+
         }
+        cout << "test" << endl;
         file.close();
+        return Result;
     }
+    return Image2Grey(0,0);
 }
 
 void Image2Grey::sauvegarderPGM(const std::string& path){
@@ -63,7 +65,7 @@ void Image2Grey::sauvegarderPGM(const std::string& path){
         file << 255 << endl;
         for(uint y=0;y<this->height();y++){
             for(uint x=0;x<this->width();x++){
-                file << (*this)(x,y) << " ";
+                file << (int)(*this)(x,y) << " ";
             }
             file << endl;
         }

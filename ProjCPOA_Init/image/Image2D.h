@@ -20,6 +20,8 @@ public:
     }
 
     Image2D(const Image2D& im) {
+        w_ = im.width();
+        h_ = im.height();
         pixels_ = new T[im.width()*im.height()];
         for(uint i=0;i<im.width();i++){
             for(uint j=0;j<im.height();j++){
