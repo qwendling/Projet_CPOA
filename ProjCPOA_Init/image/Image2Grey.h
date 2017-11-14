@@ -6,18 +6,6 @@
 class Image2Grey : public Image2D<unsigned char>{
 public:
 
-    static const int Sobel5x[25]={1,2,0,-2,-1,
-                                          4,8,0,-8,-4,
-                                          6,12,0,-12,-6,
-                                          4,8,0,-8,-4,
-                                          1,2,0,-2,-1};
-
-    static const int Sobel5y[25]={1, 4, 6, 4, 1,
-                                          2, 8, 12, 8, 2,
-                                          0, 0, 0, 0, 0,
-                                          -2,-8,-12,-8,-2,
-                                          -1,-4,-6,-4,-1};
-
     Image2Grey(uint w, uint h) : Image2D(w,h){}
 
     Image2Grey(const Image2Grey& im) : Image2D(im) {}
@@ -29,7 +17,7 @@ public:
     Image2Grey lissage(const uint n)const;
     void seuillage(const int seuil);
 
-    static Image2D<Vec2f> GradientSobel(const Image2Grey&);
+
 };
 
 

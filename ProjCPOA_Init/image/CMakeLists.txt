@@ -8,7 +8,7 @@ file ( GLOB SOURCES *.cpp)
 add_library(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE
-	${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR}/../vectorMatrix )
 
 target_link_libraries(${PROJECT_NAME} vector_matrix)
@@ -17,4 +17,5 @@ target_link_libraries(${PROJECT_NAME} vector_matrix)
 add_executable(test_image test_image.cpp ${SOURCES})
 
 target_include_directories(test_image PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR})
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/../vectorMatrix)

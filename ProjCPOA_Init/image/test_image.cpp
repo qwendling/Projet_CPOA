@@ -1,5 +1,6 @@
 #include "Image2D.h"
 #include "Image2Grey.h"
+#include "GradientSobel.h"
 
 
 int main(){

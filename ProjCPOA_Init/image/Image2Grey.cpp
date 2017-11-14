@@ -37,7 +37,7 @@ Image2Grey Image2Grey::chargerPGM(const std::string& path){
         Image2Grey Result(w,h);
         int tmp,j=0;
         double coeff = 255.f/(double)max;
-        //On stock les donees de l'image
+        //On stock les donnees de l'image
         while(getline(file,line)){
             ss.seekg(0);
             ss.str(line);
@@ -102,11 +102,11 @@ Image2Grey Image2Grey::lissage(uint n)const{
     for(uint i=0;i<result.width();i++){
         for(uint j = 0;j<result.height();j++){
             int inter = 0;
-            for(int k=-1;k<size-1;k++){
-                for(int w=-1;w<size-1;w++){
-                    if(i+k < 0 || j+w < 0 || i+k >= result.width() || j+w >= result.height())
+            for(int x=-n;x<size-n;x++){
+                for(int y=-n;y<size-n;y++){
+                    if(i+x < 0 || j+y < 0 || i+x >= result.width() || j+y >= result.height())
                         continue;
-                    inter += (*this)(i+k,j+w);
+                    inter += (*this)(i+x,j+y);
                 }
             }
             result(i,j) = inter/(std::pow(size,2));
