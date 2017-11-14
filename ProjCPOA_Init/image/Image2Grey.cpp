@@ -50,7 +50,7 @@ Image2Grey Image2Grey::chargerPGM(const std::string& path){
                 Result(x,y) = tmp * coeff ;
             }
         }
-        std::cout << "size data : " << data.gcount() << endl;
+        //std::cout << "size data : " << data.gcount() << endl;
         file.close();
         return Result;
     }
@@ -73,6 +73,7 @@ void Image2Grey::sauvegarderPGM(const std::string& path) const{
             file << endl;
         }
         file.close();
+        std::cout << "\n\nSAVE\n\n" << endl;
     }
 }
 
