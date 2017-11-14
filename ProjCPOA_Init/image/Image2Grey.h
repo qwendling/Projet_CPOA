@@ -10,6 +10,7 @@ public:
 
     static Image2Grey chargerPGM(const std::string& path);
     void sauvegarderPGM(const std::string& path);
+    Image2Grey sousEch();
     friend std::ostream &operator<<(std::ostream &out,const Image2Grey& i);
 };
 

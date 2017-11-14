@@ -32,10 +32,13 @@ int main(){
     std::cout << im2 << std::endl;
 
     Image2Grey test_grey = Image2Grey::chargerPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test.pgm");
-    std::cout << "test main" << std::endl;
     std::cout << test_grey << std::endl;
 
     test_grey.sauvegarderPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test2.pgm");
+
+    std::cout << "sous echantllonnage\n" << test_grey.sousEch() << std::endl;
+
+    test_grey.sousEch().sauvegarderPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test3.pgm");
 
     return 0;
 }

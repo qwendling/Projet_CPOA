@@ -47,7 +47,6 @@ Image2Grey Image2Grey::chargerPGM(const std::string& path){
             j++;
 
         }
-        cout << "test" << endl;
         file.close();
         return Result;
     }
@@ -82,3 +81,20 @@ std::ostream &operator<<(std::ostream &out,const Image2Grey& i){
     }
     return out;
 }
+
+
+Image2Grey Image2Grey::sousEch(){
+   Image2Grey result(this->width()>>1,this->height()>>1);
+
+   for(uint i=0;i<result.width();i++){
+       for(uint j=0;j<result.height();j++){
+           result(i,j) = ((*this)(i<<1,j<<1)+(*this)((i<<1)+1,j<<1)+(*this)(i<<1,(j<<1)+1)+(*this)((i<<1)+1,(j<<1)+1))/4;
+       }
+   }
+
+   return result;
+}
+
+
+
+
