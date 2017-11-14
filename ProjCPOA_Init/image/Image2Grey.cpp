@@ -116,6 +116,17 @@ Image2Grey Image2Grey::lissage(uint n)const{
     return result;
 }
 
+void Image2Grey::seuillage(const int seuil){
+    for(uint i=0;i<height();i++){
+        for(uint j=0;j<width();j++){
+            if((*this)(i,j)<seuil)
+                (*this)(i,j) = 0;
+            else
+                (*this)(i,j) = 255;
+        }
+    }
+}
+
 
 
 

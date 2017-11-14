@@ -40,5 +40,8 @@ int main(){
 
     test_grey.sousEch().sauvegarderPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test3.pgm");
 
+    std::cout << test_grey.lissage(1) << std::endl;
+    test_grey.lissage(1).sauvegarderPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test4.pgm");
+
     return 0;
 }
