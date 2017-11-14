@@ -37,8 +37,13 @@ Image2Grey Image2Grey::chargerPGM(const std::string& path){
         Image2Grey Result(w,h);
         int tmp,j=0;
         double coeff = 255.f/(double)max;
+        std::stringstream data;
+        string data_str;
         //On stock les donnees de l'image
         while(getline(file,line)){
+            data_str += line;
+            std::cout << "test data" << line << endl;
+            std::cout << data_str << std::endl;
             ss.seekg(0);
             ss.str(line);
             for(int i=0;i<w;i++){
@@ -48,6 +53,14 @@ Image2Grey Image2Grey::chargerPGM(const std::string& path){
             j++;
 
         }
+        data.str(data_str);
+        for(int y=0;y<h;y++){
+            for(int x = 0;x<h;x++){
+                data >> tmp;
+                Result(x,y) = tmp * coeff;
+            }
+        }
+        std::cout << "size data : " << data.gcount() << endl;
         file.close();
         return Result;
     }
@@ -96,7 +109,7 @@ Image2Grey Image2Grey::sousEch(){
    return result;
 }
 
-Image2Grey Image2Grey::lissage(uint n)const{
+Image2Grey Image2Grey::lissage(int n)const{
     Image2Grey result(*this);
     int size = 2*n+1;
     for(uint i=0;i<result.width();i++){
