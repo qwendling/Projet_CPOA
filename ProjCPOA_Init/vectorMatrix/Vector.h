@@ -28,6 +28,7 @@ using Vec4i = Vector<int,4>;
 using Vec2f = Vector<float,2>;
 using Vec3f = Vector<float,3>;
 using Vec4f = Vector<float,4>;
+using Vec3uc = Vector<unsigned char,3>;
 
 #include "Vector.hpp"
 

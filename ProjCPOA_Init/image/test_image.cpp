@@ -2,6 +2,7 @@
 #include "Image2Grey.h"
 #include "Image2RGB.h"
 #include "GradientSobel.h"
+#include <unistd.h>
 
 
 int main(){
@@ -33,23 +34,28 @@ int main(){
 
     std::cout << im2 << std::endl;
 
-    Image2Grey test_grey = Image2Grey::chargerPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test.pgm");
+    std::string path = get_current_dir_name();
+    path += "/../../ProjCPOA_Init/image";
+
+    Image2Grey test_grey = Image2Grey::chargerPGM(path+"/test.pgm");
     std::cout << test_grey << std::endl;
 
-    test_grey.sauvegarderPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test2.pgm");
+    test_grey.sauvegarderPGM(path+"/test2.pgm");
 
     std::cout << "sous echantllonnage\n" << test_grey.sousEch() << std::endl;
 
-    test_grey.sousEch().sauvegarderPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test3.pgm");
+    test_grey.sousEch().sauvegarderPGM(path+"/test3.pgm");
 
-    std::cout << test_grey.lissage(1) << std::endl;
-    test_grey.lissage(5).sauvegarderPGM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test4.pgm");
+    std::cout << test_grey.lissage(5) << std::endl;
+    test_grey.lissage(5).sauvegarderPGM(path+"/test4.pgm");
 
     GradientSobel::Sobel(test_grey);
 
-    Image2RGB test_rgb = Image2RGB::chargerPPM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test.ppm");
+    Image2RGB test_rgb = Image2RGB::chargerPPM(path+"/test.ppm");
 
-    test_rgb.sauvegarderPPM("/home/quentin/Projet_CPOA/ProjCPOA_Init/image/test2.ppm");
+    test_rgb.cropping(50,50,80,42);
+
+    test_rgb.sauvegarderPPM(path+"/test2.ppm");
 
     return 0;
 }
