@@ -19,5 +19,8 @@ target_link_libraries(${PROJECT_NAME} vector_matrix image)
 add_executable(main main.cpp ${SOURCES})
 
 target_include_directories(main PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR})
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/../vectorMatrix
+        ${CMAKE_CURRENT_SOURCE_DIR}/../image)
 
+target_link_libraries(main vector_matrix )
