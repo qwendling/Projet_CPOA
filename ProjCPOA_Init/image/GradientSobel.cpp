@@ -24,8 +24,8 @@ Image2D<Vec2f> GradientSobel::Sobel(const Image2Grey& img){
                 for(int y=-n;y<size-n;y++){
                     if(i+x < 0 || j+y < 0 || i+x >= result.width() || j+y >= result.height())
                         continue;
-                    interX += img(i+x,j+y)*Sobel5x[x+y*5];
-                    interY += img(i+x,j+y)*Sobel5y[x+y*5];
+                    interX += img(i+x,j+y)*Sobel5x[(n+x)+(n+y)*5];
+                    interY += img(i+x,j+y)*Sobel5y[(n+x)+(n+y)*5];
                 }
             }
             result(i,j)[0] = interX;
