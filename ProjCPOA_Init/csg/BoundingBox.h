@@ -15,7 +15,7 @@ public:
 
     BoundingBox operator+(const BoundingBox&)const;
     BoundingBox operator-(const BoundingBox&)const;
-    BoundingBox Inter(const BoundingBox&)const;
+    BoundingBox operator^(const BoundingBox&)const;
 
     bool isEmpty()const;
     Vec2f getCenter()const;

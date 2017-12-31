@@ -17,12 +17,12 @@ BoundingBox BoundingBox::operator+(const BoundingBox& bb)const{
 BoundingBox BoundingBox::operator-(const BoundingBox& bb)const{
     return *this;
 }
-BoundingBox BoundingBox::Inter(const BoundingBox& bb)const{
+BoundingBox BoundingBox::operator^(const BoundingBox& bb)const{
     float yMax,yMin,xMax,xMin;
-    yMax = std::max(this->getp1()[1],bb.getp1()[1]);
-    yMin = std::min(this->getp2()[1],bb.getp2()[1]);
-    xMax = std::max(this->getp2()[0],bb.getp2()[0]);
-    xMin = std::min(this->getp1()[0],bb.getp1()[0]);
+    yMax = std::min(this->getp1()[1],bb.getp1()[1]);
+    yMin = std::max(this->getp2()[1],bb.getp2()[1]);
+    xMax = std::min(this->getp2()[0],bb.getp2()[0]);
+    xMin = std::max(this->getp1()[0],bb.getp1()[0]);
     return BoundingBox(xMin,yMax,xMax,yMin);
 }
 
