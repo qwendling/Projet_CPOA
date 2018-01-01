@@ -1,12 +1,14 @@
 #ifndef CSGNODE_H
 #define CSGNODE_H
 #include <iostream>
+#include "BoundingBox.h"
 
 class csgNode{
 protected:
     std::string label;
     int id;
     csgNode* parent;
+    BoundingBox box;
 public:
     static int nbNode;
     csgNode();
@@ -21,7 +23,8 @@ public:
     int get_id() const;
     csgNode* get_parent() const;
 
-
+    virtual bool intersect(float,float)const=0;
+    virtual bool intersectBBox(float,float)const=0;
 };
 
 
