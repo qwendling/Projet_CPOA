@@ -10,9 +10,9 @@ csgTree csgTree::joinPrimitive(int n1,int n2,csg_typeoperation op){
     std::cout << "node create" << std::endl;
     feuilles.find(n1)->second->set_parent(node_op);
     feuilles.find(n2)->second->set_parent(node_op);
-    feuilles.erase(n1);
+    /*feuilles.erase(n1);
     feuilles.erase(n2);
-    updateMap();
+    updateMap();*/
     feuilles.insert(std::pair<int,csgNode*>(nbNode++,node_op));
 
     return *this;
@@ -20,7 +20,7 @@ csgTree csgTree::joinPrimitive(int n1,int n2,csg_typeoperation op){
 
 bool csgTree::intersect(float x,float y)const{
     for(std::map<int,csgNode*>::const_iterator it=feuilles.begin();it!=feuilles.end();++it){
-        if(it->second->intersect(x,y))
+        if(it->second->get_parent() ==NULL && it->second->intersect(x,y))
             return true;
     }
     return false;

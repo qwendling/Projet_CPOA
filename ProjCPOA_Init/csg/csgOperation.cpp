@@ -33,9 +33,17 @@ bool csgOperation::intersect(float x, float y) const{
 }
 
 void csgOperation::applyTransfo(const Matrix33d& m){
-    std::cout << m << std::endl;
+    Matrix33d tmp_m = m;
+    if(get_parent() != NULL){
+        tmp_m = get_parent()->global_transform*tmp_m;
+    }
+    global_transform = global_transform*inProgress.invert()*tmp_m;
+    inProgress = tmp_m;
 
-    fils_droit.applyTransfo(m*inProgress.invert()*fils_droit.inProgress);
-    fils_gauche.applyTransfo(m*inProgress.invert()*fils_gauche.inProgress);
-    inProgress = m;
+    fils_droit.applyTransfo(inverse*fils_droit.inProgress);
+    fils_gauche.applyTransfo(inverse*fils_gauche.inProgress);
+
+    inverse = global_transform.invert();
+
+    std::cout << "transform operation " << std::endl;
 }
