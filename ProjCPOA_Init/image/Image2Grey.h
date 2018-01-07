@@ -17,7 +17,6 @@ public:
     Image2Grey lissage(const int n)const;
     void seuillage(const int seuil);
 
-
 };
 
 

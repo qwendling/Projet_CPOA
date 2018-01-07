@@ -8,6 +8,8 @@
 #include "renderImg.h"
 #include "csgPrimitive.h"
 #include "csgTree.h"
+#include "csgDisk.h"
+#include "csgRegularPolygon.h"
 
 #include <map>
 
@@ -58,7 +60,7 @@ protected:
     csgTree m_tree;
 
 	/// Bounding Box to draw
-//	BoundingBox m_bb;
+    BoundingBox m_bb;
 
 	/// widget for ascii art grapg drawing
 	GraphTextEdit* m_graphTextEdit;

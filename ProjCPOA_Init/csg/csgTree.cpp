@@ -1,24 +1,34 @@
 #include "csgTree.h"
 
-csgTree csgTree::addPrimitive(csgNode& node){
-    feuilles.insert(&node);
+csgTree csgTree::addPrimitive(csgNode* node){
+    feuilles.insert(std::pair<int,csgNode*>(nbNode++,node));
     return *this;
 }
 
-csgTree csgTree::joinPrimitive(csgNode& n1,csgNode& n2,csg_typeoperation op){
-    csgOperation* node_op=new csgOperation(n1,n2,op);
-    feuilles.erase(&n1);
-    feuilles.erase(&n2);
-    feuilles.insert(node_op);
+csgTree csgTree::joinPrimitive(int n1,int n2,csg_typeoperation op){
+    csgOperation* node_op=new csgOperation(*(feuilles.find(n1)->second),*(feuilles.find(n2)->second),op);
+    feuilles.erase(n1);
+    feuilles.erase(n2);
+    feuilles.insert(std::pair<int,csgNode*>(nbNode++,node_op));
     return *this;
 }
 
 bool csgTree::intersect(float x,float y)const{
-    for(std::set<csgNode*>::iterator it=feuilles.begin();it!=feuilles.end();++it){
-        if((*it)->intersect(x,y))
+    for(std::map<int,csgNode*>::const_iterator it=feuilles.begin();it!=feuilles.end();++it){
+        if(it->second->intersect(x,y))
             return true;
     }
     return false;
+}
+
+std::ostream &operator<<(std::ostream &out,const Image2Grey& i){
+    for(uint y = 0;y<i.height();y++){
+        for(uint x = 0;x<i.width();x++){
+            out << (int)i(x,y) << " ";
+        }
+        out << std::endl;
+    }
+    return out;
 }
 
 Image2Grey csgTree::drawInImage(Image2Grey& im)const{

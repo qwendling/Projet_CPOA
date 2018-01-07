@@ -10,7 +10,7 @@
 
 
 
-RenderImg::RenderImg(/*BoundingBox& bb,*/ QWidget *parent ):
+RenderImg::RenderImg(BoundingBox& bb, QWidget *parent ):
 	QGLWidget(QGLFormat(QGL::SampleBuffers), parent),
 	m_texture(0),
 	m_widthTex(0),
@@ -18,14 +18,17 @@ RenderImg::RenderImg(/*BoundingBox& bb,*/ QWidget *parent ):
 	m_ptrTex(NULL),
     m_img(1024,1024),
 	m_drawSobel(false),
-    m_BBdraw(false)
+    m_BBdraw(false),
     //m_img(16,16)
-//	m_BB(bb)
+    m_BB(bb)
   // QQ INIT A AJOUTER ?
 
 {
+    m_heightTex = m_img.height();
+    m_widthTex = m_img.width();
     m_timer = new QTimer(this);
     m_timer->setInterval(20);
+    m_ptrTex = m_img.data_pix();
     connect(m_timer, SIGNAL(timeout()), this, SLOT(animate()));
     // Init Vecteur, et point Source
         pointSize = 3.;
@@ -100,6 +103,7 @@ void RenderImg::initializeGL()
 
 void RenderImg::paintGL()
 {
+    std::cout << "paintgl" << std::endl;
 	glClear(GL_COLOR_BUFFER_BIT);
 	glLoadIdentity();
 
@@ -125,8 +129,8 @@ void RenderImg::paintGL()
 	if (m_drawSobel)
 		drawSobel();
 
-//	if (m_BBdraw)
-//		drawBB(m_BB);
+    if (m_BBdraw)
+        drawBB(m_BB);
 
     glPointSize(pointSize);
     glColor3f(1,0,0);
@@ -240,6 +244,7 @@ void RenderImg::keyPressEvent(QKeyEvent* event)
 				m_timer->start();
 			break;
 	}
+    std::cout << "keyPress" << std::endl;
 	update();
 
 }
@@ -268,7 +273,7 @@ void RenderImg::clean()
 	for (int i=0; i<m_heightTex; ++i)
 	{
 		for (int j=0; j<m_widthTex; ++j)
-		{
+        {
 			*ptr++ = 0;
 		}
 	}
@@ -316,12 +321,23 @@ void RenderImg::drawSobel()
 
 void RenderImg::drawBB(const BoundingBox& bb)
 {
-	glBegin(GL_LINE_LOOP);
-	glColor3f(1.0f,0.5f,0.5f);
-//	glVertex2f( xImg2GL(??), yImg2GL(??) );
-//	glVertex2f( xImg2GL(??), yImg2GL(??) );
-//	glVertex2f( xImg2GL(??), yImg2GL(??) );
-//	glVertex2f( xImg2GL(??), yImg2GL(??) );
+    std::cout << "draw bb" << std::endl;
+    glBegin(GL_LINE_LOOP);
+    glColor3f(0.0f,0.5f,0.f);
+    /*for(int i=0;i<250;++i){
+        for(int j=0;j<250;++j){
+            glVertex2f( xImg2GL(i), yImg2GL(j) );
+        }
+    }*/
+    glVertex2f( xImg2GL(0), yImg2GL(0) );
+    glVertex2f( xImg2GL(250), yImg2GL(0) );
+    glVertex2f( xImg2GL(250), yImg2GL(250) );
+    glVertex2f( xImg2GL(0), yImg2GL(250) );
+
+    /*glVertex2f( xImg2GL(bb.p1[0]), yImg2GL(bb.p1[1]) );
+    glVertex2f( xImg2GL(bb.p1[0]), yImg2GL(bb.p2[1]) );
+    glVertex2f( xImg2GL(bb.p2[0]), yImg2GL(bb.p2[1]) );
+    glVertex2f( xImg2GL(bb.p2[0]), yImg2GL(bb.p1[1]) );*/
 	glEnd();
 }
 

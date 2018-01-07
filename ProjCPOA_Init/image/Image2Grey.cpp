@@ -132,3 +132,4 @@ void Image2Grey::seuillage(const int seuil){
 
 
 
+

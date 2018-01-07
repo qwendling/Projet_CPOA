@@ -17,6 +17,7 @@ csgNode::csgNode(const csgNode& n){
     this->set_label(n.get_label());
     this->set_parent(n.get_parent());
     this->id=nbNode++;
+    box = n.get_BoundingBox();
     std::cout << *(this) << " construit !" << std::endl;
 }
 

@@ -10,6 +10,7 @@
 #include "Vec2.h"
 #include "VecVf.h"
 #include "Image.h"
+#include "BoundingBox.h"
 
 //forward declaration
 class BoundingBox;
@@ -21,7 +22,7 @@ class RenderImg : public QGLWidget
 	QTimer *m_timer;
 
 public:
-	RenderImg(/*BoundingBox& bb,*/ QWidget *parent = 0);
+    RenderImg(BoundingBox& bb, QWidget *parent = 0);
 	~RenderImg();
 
 	void loadTexture(const std::string& filename);
@@ -83,7 +84,7 @@ protected:
 
 	/// transform img coord to GL [-1,+1]
 	inline float yImg2GL(float y)
-	{
+    {
 		return 1.0f - (2.0f*y)/float(m_heightTex-1);// minus because of GL is bottom to up and image up to boytom
 	}
 
@@ -108,7 +109,7 @@ protected:
 	bool m_drawSobel;
 
 	bool m_BBdraw;
-//	BoundingBox& m_BB;
+    BoundingBox& m_BB;
 
 
 	void drawBB(const BoundingBox& bb);

@@ -12,6 +12,7 @@ public:
         inProgress = Matrix33d::Identity();
         global_transform = Matrix33d::Identity();
         inverse = Matrix33d::Identity();
+        box = BoundingBox(-1.f,1.f,1.f,-1.f);
     }
 
     csgPrimitive(const csgPrimitive& cp) : csgNode(cp),

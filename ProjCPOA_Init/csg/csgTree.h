@@ -5,14 +5,17 @@
 #include "csgOperation.h"
 #include "Image2Grey.h"
 #include <set>
+#include <map>
+
 
 
 class csgTree{
 public:
-    std::set<csgNode*> feuilles;
-    csgTree(){}
-    csgTree addPrimitive(csgNode&);
-    csgTree joinPrimitive(csgNode&,csgNode&,csg_typeoperation);
+    int nbNode;
+    std::map<int,csgNode*> feuilles;
+    csgTree():nbNode(0){}
+    csgTree addPrimitive(csgNode*);
+    csgTree joinPrimitive(int,int,csg_typeoperation);
     bool intersect(float,float)const;
     Image2Grey drawInImage(Image2Grey&)const;
 };

@@ -15,17 +15,17 @@
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
 	ui(new Ui::MainWindow),
-//	m_currentNode(NULL),
-//	m_prim(NULL),
-//	m_oper(NULL),
+    m_currentNode(NULL),
+    m_prim(NULL),
+    m_oper(NULL),
 	m_graphTextEdit(NULL),
 	m_stopSignal(false)
 
 {
 	ui->setupUi(this);
 
-	m_render = new RenderImg();
-//	m_render = new RenderImg(this->m_bb);
+//	m_render = new RenderImg();
+    m_render = new RenderImg(this->m_bb);
 
 	ui->HLayout->insertWidget(0,m_render,99);
 	m_render->setFocusPolicy(Qt::ClickFocus);
@@ -70,7 +70,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(ui->actionSwapLRRoot, SIGNAL(triggered()), this, SLOT(swapLRRoot()));
 	connect(ui->actionUnjoinRoot, SIGNAL(triggered()), this, SLOT(unjoinRoot()));
 
-	connect(ui->currentNode, SIGNAL(valueChanged(int)), this, SLOT(currentNodeChanged(int)));
+    connect(ui->currentNode, SIGNAL(valueChanged(int)), this, SLOT(currentNodeChanged(int)));
 	connect(ui->checkBox_drawCurrent, SIGNAL(toggled(bool)), this, SLOT(updateTreeRender()));
 
 	connect(ui->id_filsGauche, SIGNAL(valueChanged(int)), this, SLOT(updateTreeRender()));
@@ -107,11 +107,27 @@ void MainWindow::createPrimtive()
 	int prim =  ui->prim_type->currentIndex();
 	int sides = ui->nb_sides->value();
 
+    std::cout << "prim : " << prim << " side " << sides << std::endl;
+
 // VOTRE CODE ICI : primitive creation
 //	m_currentNode = ??
 
+    switch(prim){
+        case 0:
+            m_currentNode = new csgDisk();
+            m_prim = dynamic_cast<csgPrimitive*>(m_currentNode);
+            m_tree.addPrimitive(m_prim);
+            break;
+        case 1:
+            m_currentNode = new csgRegularPolygon(sides);
+            m_prim = dynamic_cast<csgPrimitive*>(m_currentNode);
+            m_tree.addPrimitive(m_prim);
+            break;
+    }
+
 	drawTree();
-//	ui->currentNode->setValue(??); // recupere l'id du noeud cree
+    ui->currentNode->setMaximum(m_tree.nbNode-1);
+    ui->currentNode->setValue(m_tree.nbNode-1); // recupere l'id du noeud cree
 	updateTextGraph();
 
 }
@@ -372,23 +388,25 @@ void MainWindow::clone()
 void MainWindow::drawTree()
 {
 	m_render->clean();
+    std::cout << "hum" << std::endl;
     m_tree.drawInImage( m_render->getImg() );
 
-	if (ui->checkBox_drawCurrent->isChecked()/* && m_currentNode!=NULL*/)
+    if (ui->checkBox_drawCurrent->isChecked() && m_currentNode!=NULL)
 	{
 		// OPTION: trace le noeud courant dans l'image de m_render
 		// VOTRE CODE ICI
-
+        std::cout << "true" << std::endl;
 		m_render->setBBDraw(true);
-//		m_bb = m_currentNode->getBBox();
+        m_bb = m_currentNode->get_BoundingBox();
 	}
 	else
 	{
-		m_render->setBBDraw(false);
-	}
+        std::cout << "false" << std::endl;
+        m_render->setBBDraw(false);
+    }
 
 // trace les 2 fils de l'operation avec 2 niveau de gris pour vizu
-/*	int idf = ui->id_filsGauche->value();
+    /*int idf = ui->id_filsGauche->value();
 	if (idf != 0)
 	{
 		CsgNode* fNode = m_tree.fromId(idf);
@@ -402,8 +420,8 @@ void MainWindow::drawTree()
 		CsgNode* fNode = m_tree.fromId(idf);
 		if (fNode->isRoot())
 			m_tree.drawInImage(fNode, m_render->getImg(),200);
-	}
-*/
+    }*/
+
 	m_render->updateDataTexture();
 }
 

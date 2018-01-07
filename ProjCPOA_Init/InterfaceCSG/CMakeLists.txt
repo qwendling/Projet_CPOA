@@ -12,6 +12,7 @@ set(CMAKE_AUTOUIC ON)
 
 file ( GLOB HEADERS *.h *.hpp)
 file ( GLOB SOURCES *.cpp)
+file ( GLOB FORM *.ui )
 
 add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${HEADERS} ${SOURCES})
 
