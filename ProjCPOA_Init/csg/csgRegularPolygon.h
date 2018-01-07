@@ -6,7 +6,6 @@
 
 class csgRegularPolygon : public csgPrimitive{
 public:
-    int nb_sommets;
     csgRegularPolygon():csgPrimitive(),nb_sommets(3){
         init_liste_sommets();
     }
@@ -18,11 +17,11 @@ public:
         init_liste_sommets();
     }
     bool intersect(float, float) const;
-    int getNb_sommets(){return this->nb_sommets;}
+    int getNb_sommets()const{return this->nb_sommets;}
     void init_liste_somemts();
 private:
     int nb_sommets;
-    std::vector<Vec3f> liste_sommets;
+    std::vector<Vec2f> liste_sommets;
     void init_liste_sommets();
 };
 

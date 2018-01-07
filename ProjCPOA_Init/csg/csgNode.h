@@ -22,6 +22,7 @@ public:
     std::string get_label() const;
     int get_id() const;
     csgNode* get_parent() const;
+    BoundingBox get_BoundingBox()const{return box;}
 
     virtual bool intersect(float,float)const=0;
     virtual bool intersectBBox(float,float)const=0;

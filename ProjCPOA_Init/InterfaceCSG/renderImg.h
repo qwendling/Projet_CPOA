@@ -4,7 +4,7 @@
 #include <QGLWidget>
 #include <QTimer>
 
-//#include "image2grey.h"
+#include "Image2Grey.h"
 //#include "vec2f.h"
 //#include "particle.h"
 #include "Vec2.h"
@@ -27,7 +27,7 @@ public:
 	void loadTexture(const std::string& filename);
 	void updateDataTexture();
 
-//	Image2grey & getImg();
+    Image2Grey& getImg();
 	unsigned int getWidth();
 	unsigned int getHeight();
 
@@ -87,7 +87,7 @@ protected:
 		return 1.0f - (2.0f*y)/float(m_heightTex-1);// minus because of GL is bottom to up and image up to boytom
 	}
 
-    Image<uint8_t> m_img;
+    Image2Grey m_img;
 
 	/// Texture information
 	GLuint m_texture;

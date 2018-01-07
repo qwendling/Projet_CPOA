@@ -6,8 +6,8 @@
 #include <QKeyEvent>
 
 #include "renderImg.h"
-//#include "csgPrimitive.h"
-//#include "csgTree.h"
+#include "csgPrimitive.h"
+#include "csgTree.h"
 
 #include <map>
 
@@ -46,16 +46,16 @@ private:
 
 protected:
 	/// current selected node
-//	CsgNode* m_currentNode;
+    csgNode* m_currentNode;
 
 //	/// current primitive (could be NULL)
-//	CsgPrimitive * m_prim;
+    csgPrimitive * m_prim;
 
 //	/// current operation (could be NULL)
-//	CsgOperation * m_oper;
+    csgOperation * m_oper;
 
 //	/// the CSG tree
-//	CsgTree m_tree;
+    csgTree m_tree;
 
 	/// Bounding Box to draw
 //	BoundingBox m_bb;

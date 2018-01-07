@@ -372,7 +372,7 @@ void MainWindow::clone()
 void MainWindow::drawTree()
 {
 	m_render->clean();
-//	m_tree.drawInImage( m_render->getImg() );
+    m_tree.drawInImage( m_render->getImg() );
 
 	if (ui->checkBox_drawCurrent->isChecked()/* && m_currentNode!=NULL*/)
 	{

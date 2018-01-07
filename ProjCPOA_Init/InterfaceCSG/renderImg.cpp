@@ -16,10 +16,10 @@ RenderImg::RenderImg(/*BoundingBox& bb,*/ QWidget *parent ):
 	m_widthTex(0),
 	m_heightTex(0),
 	m_ptrTex(NULL),
-//	m_img(1024,1024),
+    m_img(1024,1024),
 	m_drawSobel(false),
-    m_BBdraw(false),
-    m_img(16,16)
+    m_BBdraw(false)
+    //m_img(16,16)
 //	m_BB(bb)
   // QQ INIT A AJOUTER ?
 
@@ -49,22 +49,26 @@ void RenderImg::loadTexture(const std::string& filename)
 
 void RenderImg::updateDataTexture()
 {
-    //m_ptrTex = m_img.getDataPtr();
+    m_ptrTex = m_img.data_pix();
 	glBindTexture(GL_TEXTURE_2D, m_texture);
 	glTexSubImage2D(GL_TEXTURE_2D,0,0,0,m_widthTex, m_heightTex, GL_LUMINANCE, GL_UNSIGNED_BYTE, m_ptrTex);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	updateGL();
 }
 
+Image2Grey& RenderImg::getImg(){
+    return m_img;
+}
+
 
 unsigned int RenderImg::getWidth()
 {
-	return 0; // RETURN IMAGE WIDTH
+    return m_img.width(); // RETURN IMAGE WIDTH
 }
 
 unsigned int RenderImg::getHeight()
 {
-		return 0; // RETURN IMAGE HEIGHT
+        return m_img.height(); // RETURN IMAGE HEIGHT
 }
 
 RenderImg::~RenderImg()
@@ -190,7 +194,7 @@ void RenderImg::mousePressEvent(QMouseEvent *event)
 	glBegin(GL_POINTS);
 
 	unsigned int nbp = 0;// VOTRE CODE ICI : nombre de particules
-	for (int i = 0; i < nbp; i++ )
+    for (unsigned int i = 0; i < nbp; i++ )
 	{
 		// here get back position of each particle in ptPos
 //		glVertex2f(2.0f*ptPos[0]/m_widthTex-1.0f, -2.0f*ptPos[1]/m_heightTex+1.0f);
