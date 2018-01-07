@@ -16,6 +16,10 @@ public:
 
     ~csgNode();
 
+    Matrix33d inProgress;
+    Matrix33d global_transform;
+    Matrix33d inverse;
+
     void set_label(std::string);
     void set_parent(csgNode*);
 
@@ -26,6 +30,12 @@ public:
 
     virtual bool intersect(float,float)const=0;
     virtual bool intersectBBox(float,float)const=0;
+    virtual void applyTransfo(const Matrix33d&)=0;
+
+    int windows_translateX;
+    int windows_translateY;
+    int windows_scale;
+    int windows_rotate;
 };
 
 

@@ -31,3 +31,11 @@ bool csgOperation::intersect(float x, float y) const{
     }
     return false;
 }
+
+void csgOperation::applyTransfo(const Matrix33d& m){
+    std::cout << m << std::endl;
+
+    fils_droit.applyTransfo(m*inProgress.invert()*fils_droit.inProgress);
+    fils_gauche.applyTransfo(m*inProgress.invert()*fils_gauche.inProgress);
+    inProgress = m;
+}

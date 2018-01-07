@@ -52,10 +52,11 @@ void RenderImg::loadTexture(const std::string& filename)
 
 void RenderImg::updateDataTexture()
 {
+
     m_ptrTex = m_img.data_pix();
 	glBindTexture(GL_TEXTURE_2D, m_texture);
 	glTexSubImage2D(GL_TEXTURE_2D,0,0,0,m_widthTex, m_heightTex, GL_LUMINANCE, GL_UNSIGNED_BYTE, m_ptrTex);
-	glBindTexture(GL_TEXTURE_2D, 0);
+    glBindTexture(GL_TEXTURE_2D, 0);
 	updateGL();
 }
 

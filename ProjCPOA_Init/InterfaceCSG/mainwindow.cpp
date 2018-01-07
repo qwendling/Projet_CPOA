@@ -92,7 +92,7 @@ MainWindow::~MainWindow()
 void MainWindow::updateTreeRender()
 {
 	drawTree();
-	m_render->update();
+    m_render->update();
 }
 
 
@@ -146,7 +146,7 @@ void MainWindow::createOperation()
 	std::cout << " child: "<< left << " & "<< right;
 	std::cout << std::endl;
 
-    //CsgOperation* oper=NULL;
+    csgOperation* oper=NULL;
 	switch(typeOp)
 	{
 		case 0:
@@ -164,23 +164,32 @@ void MainWindow::createOperation()
 			std::cerr << "unknown operation" << std::endl;
 			return;
 			break;
-	};
-
-//	if (oper == NULL)
-//		return;
+    };
+    oper = dynamic_cast<csgOperation*>(m_tree[m_tree.nbNode-1]);
+    if (oper == NULL){
+        return;
+    }
 
 // mettre a jour ui->currentNode ui->id_filsGauche ui->id_filsDroit
 
     //m_transfo = Matrix33d::identity();
     //m_current_center = oper->getBBox().center();
-    //m_currentNode = oper;
+    m_currentNode = oper;
 
 // mettre a jour ui->currentNode ui->id_filsGauche ui->id_filsDroit
+    ui->currentNode->setValue(m_tree.nbNode-1); // recupere l'id du noeud cree
+    ui->id_filsGauche->setMaximum(m_tree.nbNode-1);
+    ui->id_filsDroit->setMaximum(m_tree.nbNode-1);
+    ui->currentNode->setMaximum(m_tree.nbNode-1);
 
 
+    std::cout << "operation -1" << std::endl;
 	updateTreeRender();
+    std::cout << "operation 0" << std::endl;
 
 	updateTextGraph();
+
+    std::cout << "operation 1" << std::endl;
 
 }
 
@@ -196,11 +205,12 @@ void MainWindow::applyTransfo()
 
 void MainWindow::resetTransfoWidgets()
 {
-	m_stopSignal=true;
-	ui->translationX->setValue(0);
-	ui->translationY->setValue(0);
-	ui->scale->setValue(0);
-	ui->rotation->setValue(0);
+    m_stopSignal=true;
+        ui->translationX->setValue(m_currentNode->windows_translateX);
+        ui->translationY->setValue(m_currentNode->windows_translateY);
+        ui->scale->setValue(m_currentNode->windows_scale);
+        ui->rotation->setValue(m_currentNode->windows_rotate);
+
 	m_stopSignal=false;
 	transfoSliderChanged();
 
@@ -216,18 +226,27 @@ void MainWindow::resetTransfo()
 void MainWindow::transfoChanged()
 {
 	// recupere la primitive courante et lui applique les transformations
-	// VOTRE CODE ICI
+    // VOTRE CODE ICI
+    Matrix33d transfo_translate = Matrix33d::translate(float(m_render->getWidth())*ui->translationX->value()/100.,float(m_render->getHeight())*ui->translationY->value()/100.);
+    Matrix33d transfo_scale = Matrix33d::scale((ui->scale->value()+100.f),(ui->scale->value()+100.f));
+    Matrix33d transfo_rotate = Matrix33d::rotate(ui->rotation->value()/360.f*2*M_PI);
+
+    Matrix33d transfo = transfo_translate*transfo_rotate*transfo_scale;
+
+    std::cout << "scale " << ui->scale->value()+100.f << std::endl;
     if(m_prim != NULL){
-        Matrix33d transfo_translate = Matrix33d::translate(m_render->getWidth()*ui->translationX->value()/100.,m_render->getHeight()*ui->translationY->value()/100.);
-        Matrix33d transfo_scale = Matrix33d::scale((ui->scale->value()+100.f),(ui->scale->value()+100.f));
-        Matrix33d transfo_rotate = Matrix33d::rotate(ui->rotation->value()/360.f*2*M_PI);
-
-        Matrix33d transfo = transfo_translate*transfo_rotate*transfo_scale;
-
-        std::cout << "scale : " << (ui->scale->value()+100.f)/100.f << std::endl;
-
         m_prim->applyTransfo(transfo);
+    }else{
+        csgOperation* oper=dynamic_cast<csgOperation*>(m_currentNode);
+        if(oper != NULL){
+            oper->applyTransfo(transfo);
+        }
     }
+
+    m_currentNode->windows_translateX = ui->translationX->value();
+    m_currentNode->windows_translateY = ui->translationY->value();
+    m_currentNode->windows_scale = ui->scale->value();
+    m_currentNode->windows_rotate = ui->rotation->value();
 
 
     // Translation
@@ -250,8 +269,7 @@ void MainWindow::transfoChanged()
 void MainWindow::transfoSliderChanged()
 {
 	if (m_stopSignal)
-		return;
-    std::cout << "transfo changed" << std::endl;
+        return;
 
 	m_stopSignal = true;
 
@@ -405,21 +423,18 @@ void MainWindow::clone()
 
 void MainWindow::drawTree()
 {
-	m_render->clean();
-    std::cout << "hum" << std::endl;
+    m_render->clean();
     m_tree.drawInImage( m_render->getImg() );
 
     if (ui->checkBox_drawCurrent->isChecked() && m_currentNode!=NULL)
 	{
 		// OPTION: trace le noeud courant dans l'image de m_render
-		// VOTRE CODE ICI
-        std::cout << "true" << std::endl;
+        // VOTRE CODE ICI
 		m_render->setBBDraw(true);
         m_bb = m_currentNode->get_BoundingBox();
 	}
 	else
-	{
-        std::cout << "false" << std::endl;
+    {
         m_render->setBBDraw(false);
     }
 
@@ -439,8 +454,7 @@ void MainWindow::drawTree()
 		if (fNode->isRoot())
 			m_tree.drawInImage(fNode, m_render->getImg(),200);
     }*/
-
-	m_render->updateDataTexture();
+    m_render->updateDataTexture();
 }
 
 
@@ -490,12 +504,14 @@ void MainWindow::updateTextGraph()
 
 void MainWindow::currentNodeChanged(int id)
 {
+    std::cout << "node change" << std::endl;
     m_currentNode = m_tree[id];
+    m_prim = dynamic_cast<csgPrimitive*>(m_currentNode);
 
 // VOTRE CODE ICI
-
+    std::cout << "node change 2" << std::endl;
 	resetTransfoWidgets();
-
+    std::cout << "node change 3" << std::endl;
 }
 
 

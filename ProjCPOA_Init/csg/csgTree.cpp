@@ -12,6 +12,7 @@ csgTree csgTree::joinPrimitive(int n1,int n2,csg_typeoperation op){
     feuilles.find(n2)->second->set_parent(node_op);
     feuilles.erase(n1);
     feuilles.erase(n2);
+    updateMap();
     feuilles.insert(std::pair<int,csgNode*>(nbNode++,node_op));
 
     return *this;
@@ -42,4 +43,16 @@ Image2Grey csgTree::drawInImage(Image2Grey& im)const{
         }
     }
     return im;
+}
+
+void csgTree::updateMap(){
+    std::map<int,csgNode*> new_map;
+    int nb=0;
+
+    for(std::map<int,csgNode*>::const_iterator it=feuilles.begin();it!=feuilles.end();++it){
+        new_map.insert(std::pair<int,csgNode*>(nb++,it->second));
+    }
+
+    feuilles = new_map;
+    nbNode = nb;
 }
