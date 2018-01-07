@@ -126,6 +126,8 @@ void MainWindow::createPrimtive()
     }
 
 	drawTree();
+    ui->id_filsGauche->setMaximum(m_tree.nbNode-1);
+    ui->id_filsDroit->setMaximum(m_tree.nbNode-1);
     ui->currentNode->setMaximum(m_tree.nbNode-1);
     ui->currentNode->setValue(m_tree.nbNode-1); // recupere l'id du noeud cree
 	updateTextGraph();
@@ -144,17 +146,19 @@ void MainWindow::createOperation()
 	std::cout << " child: "<< left << " & "<< right;
 	std::cout << std::endl;
 
-//	CsgOperation* oper=NULL;
+    //CsgOperation* oper=NULL;
 	switch(typeOp)
 	{
 		case 0:
-
+            m_tree.joinPrimitive(left,right,csgUnion);
 			break;
 		case 1:
-
+            m_tree.joinPrimitive(left,right,csgInter);
 			break;
 		case 2:
-
+            std::cout << "diff" << std::endl;
+            m_tree.joinPrimitive(left,right,csgDiff);
+            std::cout << "diff create" << std::endl;
 			break;
 		default:
 			std::cerr << "unknown operation" << std::endl;
@@ -167,9 +171,9 @@ void MainWindow::createOperation()
 
 // mettre a jour ui->currentNode ui->id_filsGauche ui->id_filsDroit
 
-//	m_transfo = Matrix33d::identity();
-//	m_current_center = oper->getBBox().center();
-//	m_currentNode = oper;
+    //m_transfo = Matrix33d::identity();
+    //m_current_center = oper->getBBox().center();
+    //m_currentNode = oper;
 
 // mettre a jour ui->currentNode ui->id_filsGauche ui->id_filsDroit
 
@@ -215,8 +219,8 @@ void MainWindow::transfoChanged()
 	// VOTRE CODE ICI
     if(m_prim != NULL){
         Matrix33d transfo_translate = Matrix33d::translate(m_render->getWidth()*ui->translationX->value()/100.,m_render->getHeight()*ui->translationY->value()/100.);
-        Matrix33d transfo_scale = Matrix33d::scale((ui->scale->value()+100.f)/100.f,(ui->scale->value()+100.f)/100.f);
-        Matrix33d transfo_rotate = Matrix33d::rotate(0);
+        Matrix33d transfo_scale = Matrix33d::scale((ui->scale->value()+100.f),(ui->scale->value()+100.f));
+        Matrix33d transfo_rotate = Matrix33d::rotate(ui->rotation->value()/360.f*2*M_PI);
 
         Matrix33d transfo = transfo_translate*transfo_rotate*transfo_scale;
 
@@ -486,7 +490,7 @@ void MainWindow::updateTextGraph()
 
 void MainWindow::currentNodeChanged(int id)
 {
-//	m_currentNode = m_tree.fromId(id);
+    m_currentNode = m_tree[id];
 
 // VOTRE CODE ICI
 

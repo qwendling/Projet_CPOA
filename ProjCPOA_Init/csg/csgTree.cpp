@@ -7,11 +7,13 @@ csgTree csgTree::addPrimitive(csgNode* node){
 
 csgTree csgTree::joinPrimitive(int n1,int n2,csg_typeoperation op){
     csgOperation* node_op=new csgOperation(*(feuilles.find(n1)->second),*(feuilles.find(n2)->second),op);
+    std::cout << "node create" << std::endl;
+    feuilles.find(n1)->second->set_parent(node_op);
+    feuilles.find(n2)->second->set_parent(node_op);
     feuilles.erase(n1);
     feuilles.erase(n2);
     feuilles.insert(std::pair<int,csgNode*>(nbNode++,node_op));
-    feuilles.find(n1)->second->set_parent(node_op);
-    feuilles.find(n2)->second->set_parent(node_op);
+
     return *this;
 }
 

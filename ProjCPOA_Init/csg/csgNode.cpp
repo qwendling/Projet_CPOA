@@ -10,6 +10,7 @@ std::ostream &operator<<(std::ostream &out,const csgNode& n){
 
 csgNode::csgNode(){
     id = nbNode++;
+    parent==NULL;
     std::cout << *(this) << " construit !" << std::endl;
 }
 

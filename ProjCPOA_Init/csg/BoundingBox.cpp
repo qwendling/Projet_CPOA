@@ -1,5 +1,6 @@
 #include "BoundingBox.h"
-#include "vector"
+#include <vector>
+#include <algorithm>
 
 
 Vec2f BoundingBox::getp1()const{
@@ -58,9 +59,30 @@ void BoundingBox::addPoint(const Vec2f& p){
 }
 
 void BoundingBox::applyTransfo(const Matrix33d& m){
-    Vec2f p1_trans = m*p1;
-    Vec2f p2_trans = m*p2;
-    Vec2f p3_trans = m*p3;
-    Vec2f p4_trans = m*p4;
+
+
+    Vec2f p1_trans = m*Vec3f({p1[0],p1[1],1});
+    Vec2f p2_trans = m*Vec3f({p2[0],p2[1],1});
+    Vec2f p3_trans = m*Vec3f({p1[0],p2[1],1});
+    Vec2f p4_trans = m*Vec3f({p2[0],p1[1],1});
+
+
+    std::vector<Vec2f> vec_transfo;
+    vec_transfo.push_back(p1_trans);
+    vec_transfo.push_back(p2_trans);
+    vec_transfo.push_back(p3_trans);
+    vec_transfo.push_back(p4_trans);
+
+    auto minMax_x = std::minmax_element(vec_transfo.begin(), vec_transfo.end(),[](const Vec2f& v1, const Vec2f& v2) {
+        return v1[0] < v2[0];
+    });
+
+    auto minMax_y = std::minmax_element(vec_transfo.begin(), vec_transfo.end(),[](const Vec2f& v1, const Vec2f& v2) {
+        return v1[1] < v2[1];
+    });
+
+    this->p1 = Vec2f({(*minMax_x.first)[0],(*minMax_y.second)[1]});
+    this->p2 = Vec2f({(*minMax_x.second)[0],(*minMax_y.first)[1]});
+
 
 }

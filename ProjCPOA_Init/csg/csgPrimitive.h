@@ -12,7 +12,7 @@ public:
         inProgress = Matrix33d::Identity();
         global_transform = Matrix33d::Identity();
         inverse = Matrix33d::Identity();
-        box = BoundingBox(-1.f,1.f,1.f,-1.f);
+        box = BoundingBox(-0.5f,0.5f,0.5f,-0.5f);
     }
 
     void applyTransfo(const Matrix33d&);

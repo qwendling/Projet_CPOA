@@ -103,7 +103,7 @@ void RenderImg::initializeGL()
 
 void RenderImg::paintGL()
 {
-    std::cout << "paintgl" << std::endl;
+
 	glClear(GL_COLOR_BUFFER_BIT);
 	glLoadIdentity();
 
@@ -321,23 +321,22 @@ void RenderImg::drawSobel()
 
 void RenderImg::drawBB(const BoundingBox& bb)
 {
-    std::cout << "draw bb" << std::endl;
     glBegin(GL_LINE_LOOP);
     glColor3f(0.0f,0.5f,0.f);
     /*for(int i=0;i<250;++i){
         for(int j=0;j<250;++j){
             glVertex2f( xImg2GL(i), yImg2GL(j) );
         }
-    }*/
+    }
     glVertex2f( xImg2GL(0), yImg2GL(0) );
     glVertex2f( xImg2GL(250), yImg2GL(0) );
     glVertex2f( xImg2GL(250), yImg2GL(250) );
-    glVertex2f( xImg2GL(0), yImg2GL(250) );
+    glVertex2f( xImg2GL(0), yImg2GL(250) );*/
 
-    /*glVertex2f( xImg2GL(bb.p1[0]), yImg2GL(bb.p1[1]) );
+    glVertex2f( xImg2GL(bb.p1[0]), yImg2GL(bb.p1[1]) );
     glVertex2f( xImg2GL(bb.p1[0]), yImg2GL(bb.p2[1]) );
     glVertex2f( xImg2GL(bb.p2[0]), yImg2GL(bb.p2[1]) );
-    glVertex2f( xImg2GL(bb.p2[0]), yImg2GL(bb.p1[1]) );*/
+    glVertex2f( xImg2GL(bb.p2[0]), yImg2GL(bb.p1[1]) );
 	glEnd();
 }
 

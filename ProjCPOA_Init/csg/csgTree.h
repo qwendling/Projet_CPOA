@@ -18,6 +18,7 @@ public:
     csgTree joinPrimitive(int,int,csg_typeoperation);
     bool intersect(float,float)const;
     Image2Grey drawInImage(Image2Grey&)const;
+    csgNode* operator[](int i){return feuilles.find(i)->second;}
 };
 
 

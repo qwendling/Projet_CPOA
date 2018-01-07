@@ -15,7 +15,7 @@ bool csgRegularPolygon::intersect(float x, float y) const{
         }
         Vec2f v1=p2-p1;
         Vec2f v2=p_local-p1;
-        if(vect(v1,v2)<0)
+        if(vect(v1,v2)<=0)
             return false;
     }
     return true;
