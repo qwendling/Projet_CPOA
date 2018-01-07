@@ -15,6 +15,8 @@ public:
         box = BoundingBox(-1.f,1.f,1.f,-1.f);
     }
 
+    void applyTransfo(const Matrix33d&);
+
     csgPrimitive(const csgPrimitive& cp) : csgNode(cp),
             inProgress(cp.inProgress),
             global_transform(cp.global_transform),

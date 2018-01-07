@@ -1,4 +1,5 @@
 #include "BoundingBox.h"
+#include "vector"
 
 
 Vec2f BoundingBox::getp1()const{
@@ -54,4 +55,12 @@ void BoundingBox::addPoint(const Vec2f& p){
     if(p[1]<this->getp2()[1]){
         this->getp2()[1] = p[1];
     }
+}
+
+void BoundingBox::applyTransfo(const Matrix33d& m){
+    Vec2f p1_trans = m*p1;
+    Vec2f p2_trans = m*p2;
+    Vec2f p3_trans = m*p3;
+    Vec2f p4_trans = m*p4;
+
 }

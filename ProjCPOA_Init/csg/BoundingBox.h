@@ -2,6 +2,7 @@
 #define BOUNDINGBOX_H
 
 #include "Vector.h"
+#include "Matrix33d.h"
 
 class BoundingBox{
 public:
@@ -21,6 +22,7 @@ public:
     Vec2f getCenter()const;
     bool isInBox(const Vec2f& p)const;
     void addPoint(const Vec2f& p);
+    void applyTransfo(const Matrix33d&);
 };
 
 

@@ -70,6 +70,7 @@ Matrix33d Matrix33d::translate(const double dx,const double dy){
     t(2,0) = dx;
     t(2,1) = dy;
 
+
     return t;
 }
 
@@ -134,7 +135,7 @@ Vec3f Matrix33d::operator*(const Vec3f& v)const{
 }
 
 Vec2f Matrix33d::apply(Vec2f& v)const{
-    v = (*this)*v;
+    v = (*this)*Vec3f(v[0],v[1],1);
     return v;
 }
 

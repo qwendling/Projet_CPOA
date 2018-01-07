@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->translationY->setMaximum(100);
 	
 	ui->scale->setMinimum(-100);
-	ui->scale->setMaximum(100);
+    ui->scale->setMaximum(1000);
 	
 	ui->currentNode->setMaximum(0);
 	ui->id_filsGauche->setMaximum(0);
@@ -183,6 +183,7 @@ void MainWindow::createOperation()
 
 void MainWindow::applyTransfo()
 {
+    std::cout << "transfo" << std::endl;
 //	m_transfo = m_currentNode->getTransfo();
 	resetTransfoWidgets();
 	updateTreeRender();
@@ -212,13 +213,25 @@ void MainWindow::transfoChanged()
 {
 	// recupere la primitive courante et lui applique les transformations
 	// VOTRE CODE ICI
+    if(m_prim != NULL){
+        Matrix33d transfo_translate = Matrix33d::translate(m_render->getWidth()*ui->translationX->value()/100.,m_render->getHeight()*ui->translationY->value()/100.);
+        Matrix33d transfo_scale = Matrix33d::scale((ui->scale->value()+100.f)/100.f,(ui->scale->value()+100.f)/100.f);
+        Matrix33d transfo_rotate = Matrix33d::rotate(0);
+
+        Matrix33d transfo = transfo_translate*transfo_rotate*transfo_scale;
+
+        std::cout << "scale : " << (ui->scale->value()+100.f)/100.f << std::endl;
+
+        m_prim->applyTransfo(transfo);
+    }
+
 
     // Translation
-        m_render->pointSource[0] =  ui->translationX->value()/100.; // /100 car valeurs en pourcentage
+        /*m_render->pointSource[0] =  ui->translationX->value()/100.; // /100 car valeurs en pourcentage
         m_render->pointSource[1] =  ui->translationY->value()/100.;
 
         // Size
-        m_render->pointSize = ui->scale->value();
+        m_render->pointSize = ui->scale->value();*/
 
 
 	// de même avec un noeud Operation !
@@ -234,6 +247,7 @@ void MainWindow::transfoSliderChanged()
 {
 	if (m_stopSignal)
 		return;
+    std::cout << "transfo changed" << std::endl;
 
 	m_stopSignal = true;
 
