@@ -104,7 +104,6 @@ void RenderImg::initializeGL()
 
 void RenderImg::paintGL()
 {
-    std::cout << "printGL" << std::endl;
 	glClear(GL_COLOR_BUFFER_BIT);
 	glLoadIdentity();
 
@@ -143,7 +142,7 @@ void RenderImg::paintGL()
     unsigned int nbp = vec_particule.size();// VOTRE CODE ICI : nombre de particules
     for (unsigned int i = 0; i < nbp; i++ )
     {
-        std::cout << vec_particule[i]->pos << " horloge " << vec_particule[i]->horloge << std::endl;
+        //std::cout << vec_particule[i]->pos << " vitesse " << vec_particule[i]->vitesse << " horloge " << vec_particule[i]->horloge << std::endl;
         // here get back position of each particle in ptPos
         glVertex2f(2.0f*vec_particule[i]->pos[0]/m_widthTex-1.0f, -2.0f*vec_particule[i]->pos[1]/m_heightTex+1.0f);
     }
@@ -241,7 +240,9 @@ void RenderImg::keyPressEvent(QKeyEvent* event)
 			break;
 		case 'E':
 			// qq init
-			m_timer->start();
+            m_timer->start();
+            //fontain.move_all();
+            //update();
 			break;
 		case 'S':
 			m_timer->stop();
@@ -265,7 +266,7 @@ void RenderImg::animate()
     /*for(int i=0; i<nbrVec ; i++){
             tabVec[i].avance(pointSource[0],pointSource[1]);
     }*/
-    fontain.move_all();
+    fontain.move_all(m_img);
     update();
 }
 

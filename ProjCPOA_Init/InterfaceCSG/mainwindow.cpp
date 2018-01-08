@@ -183,13 +183,10 @@ void MainWindow::createOperation()
     ui->currentNode->setMaximum(m_tree.nbNode-1);
 
 
-    std::cout << "operation -1" << std::endl;
-	updateTreeRender();
-    std::cout << "operation 0" << std::endl;
+    updateTreeRender();
 
 	updateTextGraph();
 
-    std::cout << "operation 1" << std::endl;
 
 }
 
