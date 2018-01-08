@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->translationY->setMinimum(-100);
 	ui->translationY->setMaximum(100);
 	
-	ui->scale->setMinimum(-100);
+    ui->scale->setMinimum(-99);
     ui->scale->setMaximum(1000);
 	
 	ui->currentNode->setMaximum(0);
@@ -504,14 +504,11 @@ void MainWindow::updateTextGraph()
 
 void MainWindow::currentNodeChanged(int id)
 {
-    std::cout << "node change" << std::endl;
     m_currentNode = m_tree[id];
     m_prim = dynamic_cast<csgPrimitive*>(m_currentNode);
 
 // VOTRE CODE ICI
-    std::cout << "node change 2" << std::endl;
-	resetTransfoWidgets();
-    std::cout << "node change 3" << std::endl;
+    resetTransfoWidgets();
 }
 
 

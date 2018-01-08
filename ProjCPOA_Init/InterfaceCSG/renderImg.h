@@ -6,11 +6,12 @@
 
 #include "Image2Grey.h"
 //#include "vec2f.h"
-//#include "particle.h"
+#include "Particule.h"
 #include "Vec2.h"
 #include "VecVf.h"
 #include "Image.h"
 #include "BoundingBox.h"
+#include "Fontaine.h"
 
 //forward declaration
 class BoundingBox;
@@ -116,12 +117,14 @@ protected:
 
 	void drawSobel();
 
+    std::vector<Particule*> vec_particule;
+
 //	ici les declaration de:
 //   - l'image a niveau de gris
 //	 - l'image gradiant'
 
 //	 la fontaine de particule
-//	Fountain fountain;
+    Fontaine fontain;
 };
 
 #endif // RENDERIMG_H

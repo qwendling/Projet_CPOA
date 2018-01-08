@@ -16,8 +16,11 @@ public:
     Vec2f futur_pos;
     Vec2f futur_vitesse;
 
-    Particule();
+    Particule():horloge(0){}
     Particule(const Vec2f& v_pos,const Vec2f& v_vitesse):pos(v_pos),vitesse(v_vitesse){}
+    bool operator<(Particule& p){
+        return horloge < p.horloge;
+    }
 
     void move();
 

@@ -104,7 +104,7 @@ void RenderImg::initializeGL()
 
 void RenderImg::paintGL()
 {
-
+    std::cout << "printGL" << std::endl;
 	glClear(GL_COLOR_BUFFER_BIT);
 	glLoadIdentity();
 
@@ -139,6 +139,13 @@ void RenderImg::paintGL()
     for (int i = 0; i < nbrVec; i++ )
     {
         glVertex2fv(tabVec[i].get_ptr());
+    }
+    unsigned int nbp = vec_particule.size();// VOTRE CODE ICI : nombre de particules
+    for (unsigned int i = 0; i < nbp; i++ )
+    {
+        std::cout << vec_particule[i]->pos << " horloge " << vec_particule[i]->horloge << std::endl;
+        // here get back position of each particle in ptPos
+        glVertex2f(2.0f*vec_particule[i]->pos[0]/m_widthTex-1.0f, -2.0f*vec_particule[i]->pos[1]/m_heightTex+1.0f);
     }
     glEnd();
 
@@ -188,25 +195,27 @@ void RenderImg::mousePressEvent(QMouseEvent *event)
 	if (m_state_modifier & Qt::ControlModifier)
 		std::cout << "     with Ctrl" << std::endl;
 
+    Particule* p = new Particule(Vec2f({(float)x,(float)y}),Vec2f({0.f,0.f}));
 
-
+    vec_particule.push_back(p);
+    fontain.append(p);
 
 
 	paintGL();
 
-	glPointSize(4.0f);
+    glPointSize(4.0f);
 	glColor3f(1.0f,0,0);
 	glBegin(GL_POINTS);
 
-	unsigned int nbp = 0;// VOTRE CODE ICI : nombre de particules
+    unsigned int nbp = vec_particule.size();// VOTRE CODE ICI : nombre de particules
     for (unsigned int i = 0; i < nbp; i++ )
-	{
+    {
 		// here get back position of each particle in ptPos
-//		glVertex2f(2.0f*ptPos[0]/m_widthTex-1.0f, -2.0f*ptPos[1]/m_heightTex+1.0f);
+        glVertex2f(2.0f*vec_particule[i]->pos[0]/m_widthTex-1.0f, -2.0f*vec_particule[i]->pos[1]/m_heightTex+1.0f);
 	}
 	glEnd();
 
-	swapBuffers();
+    swapBuffers();
 }
 
 
@@ -253,9 +262,10 @@ void RenderImg::keyPressEvent(QKeyEvent* event)
 
 void RenderImg::animate()
 {
-    for(int i=0; i<nbrVec ; i++){
+    /*for(int i=0; i<nbrVec ; i++){
             tabVec[i].avance(pointSource[0],pointSource[1]);
-    }
+    }*/
+    fontain.move_all();
     update();
 }
 
