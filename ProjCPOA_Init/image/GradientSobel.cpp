@@ -13,23 +13,23 @@ const int GradientSobel::Sobel5y[25]={1, 4, 6, 4, 1,
                                       -2,-8,-12,-8,-2,
                                       -1,-4,-6,-4,-1};
 
-Image2D<Vec2f> GradientSobel::Sobel(const Image2Grey& img){
-    Image2D<Vec2f> result(img.width(),img.height());
+Image2D<Vec2f>* GradientSobel::Sobel(const Image2Grey& img){
+    Image2D<Vec2f>* result = new Image2D<Vec2f>(img.width(),img.height());
 
     int n = 2,size=5;
-    for(uint i=0;i<result.width();i++){
-        for(uint j = 0;j<result.height();j++){
+    for(uint i=0;i<result->width();i++){
+        for(uint j = 0;j<result->height();j++){
             int interX = 0,interY = 0;
             for(int x=-n;x<size-n;x++){
                 for(int y=-n;y<size-n;y++){
-                    if(i+x < 0 || j+y < 0 || i+x >= result.width() || j+y >= result.height())
+                    if(i+x < 0 || j+y < 0 || i+x >= result->width() || j+y >= result->height())
                         continue;
                     interX += img(i+x,j+y)*Sobel5x[(n+x)+(n+y)*5];
                     interY += img(i+x,j+y)*Sobel5y[(n+x)+(n+y)*5];
                 }
             }
-            result(i,j)[0] = interX;
-            result(i,j)[1] = interY;
+            (*result)(i,j)[0] = interX;
+            (*result)(i,j)[1] = interY;
         }
 
     }

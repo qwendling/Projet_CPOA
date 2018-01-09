@@ -23,10 +23,10 @@ public:
     Vec2f futur_vitesse;
 
     Image2Grey im;
-    Image2D<Vec2f> gradient;
+    Image2D<Vec2f>* gradient;
 
-    Particule():horloge(0),im(0,0),gradient(0,0){id=nbId++;}
-    Particule(const Vec2f& v_pos,const Vec2f& v_vitesse):horloge(0),pos(v_pos),vitesse(v_vitesse),im(0,0),gradient(0,0){id=nbId++;}
+    Particule():horloge(0),im(0,0),gradient(nullptr){id=nbId++;}
+    Particule(const Vec2f& v_pos,const Vec2f& v_vitesse):horloge(0),pos(v_pos),vitesse(v_vitesse),im(0,0),gradient(nullptr){id=nbId++;}
     bool operator<(Particule& p){
         return horloge < p.horloge;
     }
@@ -35,7 +35,7 @@ public:
 
     bool calcul_PtsImpact(Vec2f &P_impact);
 
-    void initIm(Image2Grey& im,Image2D<Vec2f> gradient){
+    void initIm(Image2Grey& im,Image2D<Vec2f>* gradient){
         this->im = im;
         this->gradient = gradient;
     }

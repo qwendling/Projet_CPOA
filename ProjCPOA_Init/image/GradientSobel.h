@@ -12,7 +12,7 @@ public:
 
     static const int Sobel5y[25];
 
-    static Image2D<Vec2f> Sobel(const Image2Grey&);
+    static Image2D<Vec2f>* Sobel(const Image2Grey&);
 };
 
 

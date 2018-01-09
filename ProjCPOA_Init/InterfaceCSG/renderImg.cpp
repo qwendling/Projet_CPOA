@@ -196,10 +196,10 @@ void RenderImg::mousePressEvent(QMouseEvent *event)
 	if (m_state_modifier & Qt::ControlModifier)
 		std::cout << "     with Ctrl" << std::endl;
 
-    Particule* p = new Particule(Vec2f({(float)x,(float)y}),Vec2f({0.f,0.f}));
+    /*Particule* p = new Particule(Vec2f({(float)x,(float)y}),Vec2f({0.f,0.f}));
 
     vec_particule.push_back(p);
-    fontain.append(p);
+    fontain.append(p);*/
 
 
 	paintGL();
@@ -222,12 +222,40 @@ void RenderImg::mousePressEvent(QMouseEvent *event)
 
 void RenderImg::mouseReleaseEvent(QMouseEvent *event)
 {
-//	int x,y;
-//	coordInTexture(event, x, y);
-//	m_lastPos.setX(x);
-//	m_lastPos.setY(y);
+    int x,y;
+    coordInTexture(event, x, y);
 
-//	std::cout << " RELEASE in texture "<< x << " / "<< y << std::endl;
+    int min_x = std::min(x,m_lastPos.x());
+    int max_x = std::max(x,m_lastPos.x());
+    int min_y = std::min(y,m_lastPos.y());
+    int max_y = std::max(y,m_lastPos.y());
+
+    for(int i=min_x;i<max_x;i+=5){
+        for(int j=min_y;j<max_y;j+=5){
+            Particule* p = new Particule(Vec2f({(float)i,(float)j}),Vec2f({0.f,0.f}));
+
+            vec_particule.push_back(p);
+            fontain.append(p);
+        }
+    }
+
+    std::cout << " RELEASE in texture "<< x << " / "<< y << std::endl;
+
+    paintGL();
+
+    glPointSize(4.0f);
+    glColor3f(1.0f,0,0);
+    glBegin(GL_POINTS);
+
+    unsigned int nbp = vec_particule.size();// VOTRE CODE ICI : nombre de particules
+    for (unsigned int i = 0; i < nbp; i++ )
+    {
+        // here get back position of each particle in ptPos
+        glVertex2f(2.0f*vec_particule[i]->pos[0]/m_widthTex-1.0f, -2.0f*vec_particule[i]->pos[1]/m_heightTex+1.0f);
+    }
+    glEnd();
+
+    swapBuffers();
 
 }
 
@@ -235,7 +263,9 @@ void RenderImg::keyPressEvent(QKeyEvent* event)
 {
 	m_state_modifier = event->modifiers();
     unsigned int nbp = vec_particule.size();
-    Image2D<Vec2f> grad = GradientSobel::Sobel(m_img);
+    Image2D<Vec2f>* grad = GradientSobel::Sobel(m_img);
+
+    std::cout << grad << std::endl;
 
 	switch(event->key())
 	{
