@@ -137,10 +137,10 @@ void RenderImg::paintGL()
     glPointSize(pointSize);
     glColor3f(1,0,0);
     glBegin(GL_POINTS);
-    for (int i = 0; i < nbrVec; i++ )
+    /*for (int i = 0; i < nbrVec; i++ )
     {
         glVertex2fv(tabVec[i].get_ptr());
-    }
+    }*/
     unsigned int nbp = vec_particule.size();// VOTRE CODE ICI : nombre de particules
     for (unsigned int i = 0; i < nbp; i++ )
     {

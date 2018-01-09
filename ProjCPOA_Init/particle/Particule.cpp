@@ -75,7 +75,7 @@ bool Particule::calcul_PtsImpact(Vec2f& P_impact){
         Vec2f Vn = gradient((int)futur_pos[0],(int)futur_pos[1]);
         Vn.normalise();
         Vec2f Vt({Vn[1],-Vn[0]});
-        P_impact = futur_pos;
+        P_impact = pos;
 
 
         Vn = Vn*(Vn*futur_vitesse);
