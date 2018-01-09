@@ -6,7 +6,7 @@ float Particule::gravite = 9.81;
 int Particule::nbId=0;
 
 
-void Particule::move(){
+void Particule::move(const Image2Grey& im){
     Vec2f debut_pos=pos;
     while(1){
         futur_horloge = horloge+dt;
@@ -21,9 +21,8 @@ void Particule::move(){
         if(abs(diff_pos[0]) >= 1 || abs(diff_pos[1]) >= 1){
             Vec2f P_impact;
             horloge = futur_horloge;
-            if(calcul_PtsImpact(P_impact)){
+            while(calcul_PtsImpact(im,P_impact)){
                 futur_pos = P_impact + futur_vitesse*dt;
-                horloge+=dt;
             }
 
             vitesse = futur_vitesse;
@@ -37,7 +36,7 @@ void Particule::move(){
     }
 }
 
-bool Particule::calcul_PtsImpact(Vec2f& P_impact){
+bool Particule::calcul_PtsImpact(const Image2Grey& im,Vec2f& P_impact){
     if(futur_pos[1]>=im.height()){
         futur_vitesse[0] = 0.9*futur_vitesse[0];
         futur_vitesse[1] = -0.5*futur_vitesse[1];
@@ -62,7 +61,7 @@ bool Particule::calcul_PtsImpact(Vec2f& P_impact){
         return true;
     }
 
-    if(futur_pos[0]>=im.width()){
+    if(futur_pos[0]<im.width()){
         futur_vitesse[0] = -0.5*futur_vitesse[0];
         futur_vitesse[1] = 0.9*futur_vitesse[1];
         P_impact = futur_pos;
@@ -70,21 +69,7 @@ bool Particule::calcul_PtsImpact(Vec2f& P_impact){
         return true;
     }
 
-    if(im(futur_pos[0],futur_pos[1])){
-
-        Vec2f Vn = gradient((int)futur_pos[0],(int)futur_pos[1]);
-        Vn.normalise();
-        Vec2f Vt({Vn[1],-Vn[0]});
-        P_impact = futur_pos;
-
-
-        Vn = Vn*(Vn*futur_vitesse);
-        Vt = Vt*(Vt*futur_vitesse);
-
-        futur_vitesse = 0.9*Vt - 0.5*Vn;
-        return true;
-    }
-
+    if(im(futur_pos[0],futur_pos[1]))
 
     return false;
 }

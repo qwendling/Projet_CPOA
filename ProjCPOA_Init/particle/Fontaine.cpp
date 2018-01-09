@@ -1,7 +1,7 @@
 #include "Fontaine.h"
 
 
-void Fontaine::move_all(const Image2Grey& im){
+void Fontaine::move_all(){
     while(1){
         Particule* p = queue_particle.top();
         queue_particle.pop();
@@ -11,7 +11,7 @@ void Fontaine::move_all(const Image2Grey& im){
             horloge = horloge+dt;
             return;
         }
-        p->move(im);
+        p->move();
         queue_particle.push(p);
     }
 }

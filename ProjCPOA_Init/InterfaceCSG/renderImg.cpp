@@ -7,6 +7,7 @@
 #include <limits>
 #include "Array.h"
 #include "Vec2.h"
+#include "GradientSobel.h"
 
 
 
@@ -29,6 +30,7 @@ RenderImg::RenderImg(BoundingBox& bb, QWidget *parent ):
     m_timer = new QTimer(this);
     m_timer->setInterval(20);
     m_ptrTex = m_img.data_pix();
+    vec_particule.push_back(new Particule(Vec2f({-1,-1}),Vec2f({-1,-1})));
     connect(m_timer, SIGNAL(timeout()), this, SLOT(animate()));
     // Init Vecteur, et point Source
         pointSize = 3.;
@@ -232,6 +234,8 @@ void RenderImg::mouseReleaseEvent(QMouseEvent *event)
 void RenderImg::keyPressEvent(QKeyEvent* event)
 {
 	m_state_modifier = event->modifiers();
+    unsigned int nbp = vec_particule.size();
+    Image2D<Vec2f> grad = GradientSobel::Sobel(m_img);
 
 	switch(event->key())
 	{
@@ -240,7 +244,16 @@ void RenderImg::keyPressEvent(QKeyEvent* event)
 			break;
 		case 'E':
 			// qq init
+
+
+
+            for (unsigned int i = 0; i < nbp; i++ )
+            {
+                // here get back position of each particle in ptPos
+                vec_particule[i]->initIm(m_img,grad);
+            }
             m_timer->start();
+
             //fontain.move_all();
             //update();
 			break;
@@ -266,7 +279,7 @@ void RenderImg::animate()
     /*for(int i=0; i<nbrVec ; i++){
             tabVec[i].avance(pointSource[0],pointSource[1]);
     }*/
-    fontain.move_all(m_img);
+    fontain.move_all();
     update();
 }
 

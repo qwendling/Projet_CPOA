@@ -49,7 +49,7 @@ int main(){
     std::cout << test_grey.lissage(5) << std::endl;
     test_grey.lissage(5).sauvegarderPGM(path+"/test4.pgm");
 
-    GradientSobel::Sobel(test_grey);
+    std::cout << GradientSobel::Sobel(test_grey) << std::endl;
 
     Image2RGB test_rgb = Image2RGB::chargerPPM(path+"/test.ppm");
 

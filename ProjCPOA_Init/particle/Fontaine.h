@@ -20,7 +20,8 @@ public:
     std::priority_queue<Particule*,std::vector<Particule*>,FoncteurParticule> queue_particle;
     Fontaine():dt(0.1),horloge(0){}
     void append(Particule* p){queue_particle.push(p);}
-    void move_all(const Image2Grey&);
+    void move_all();
+
 };
 
 
